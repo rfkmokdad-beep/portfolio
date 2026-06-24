@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafik MOKDAD — Portfolio</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #0d1117;
+    --bg2:       #161b22;
+    --bg3:       #1c2128;
+    --border:    rgba(255,255,255,0.08);
+    --text:      #e6edf3;
+    --text2:     #8b949e;
+    --accent:    #58a6ff;
+    --accent2:   #1f6feb;
+    --green:     #3fb950;
+    --purple:    #bc8cff;
+    --orange:    #ffa657;
+    --red:       #f85149;
+    --teal:      #39d353;
+    --pink:      #f778ba;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,17,23,0.88);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 40px; height: 60px;
+  }
+  .nav-brand { font-weight: 800; font-size: 16px; color: var(--text); text-decoration: none; letter-spacing: -0.5px; }
+  .nav-brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: var(--text2); text-decoration: none; font-size: 14px; transition: color .15s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-contact { display: flex; align-items: center; gap: 16px; }
+  .nav-contact a { color: var(--text2); font-size: 13px; text-decoration: none; transition: color .15s; }
+  .nav-contact a:hover { color: var(--accent); }
+
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    padding: 120px 24px 80px; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 900px 500px at 50% 30%, rgba(31,111,235,0.13), transparent);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(31,111,235,0.12); border: 1px solid rgba(88,166,255,0.2);
+    border-radius: 100px; padding: 6px 16px;
+    font-size: 13px; color: var(--accent); margin-bottom: 24px;
+  }
+  .hero-badge::before { content: '●'; font-size: 8px; color: var(--green); }
+  .hero-name { font-size: clamp(40px, 7vw, 72px); font-weight: 800; letter-spacing: -2px; line-height: 1.05; margin-bottom: 12px; }
+  .hero-name span { color: var(--accent); }
+  .hero-title { font-size: clamp(16px, 2.5vw, 22px); font-weight: 500; color: var(--text2); margin-bottom: 20px; }
+  .hero-title strong { color: var(--text); font-weight: 600; }
+  .hero-desc { font-size: 16px; color: var(--text2); max-width: 600px; margin: 0 auto 36px; line-height: 1.75; }
+  .hero-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .hero-contact { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .hero-contact a { display: flex; align-items: center; gap: 7px; color: var(--text2); text-decoration: none; font-size: 14px; transition: color .15s; }
+  .hero-contact a:hover { color: var(--accent); }
+
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .15s; cursor: pointer; border: none; }
+  .btn-primary { background: var(--accent2); color: #fff; }
+  .btn-primary:hover { background: #388bfd; }
+  .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .btn-outline:hover { background: var(--bg2); border-color: rgba(255,255,255,0.15); }
+
+  .stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 0 24px 80px; }
+  .stat { text-align: center; }
+  .stat-n { font-size: 36px; font-weight: 800; color: var(--text); letter-spacing: -1px; }
+  .stat-l { font-size: 13px; color: var(--text2); margin-top: 2px; }
+
+  section { padding: 80px 24px; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .section-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; letter-spacing: -0.8px; margin-bottom: 48px; }
+
+  .stack { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 18px; }
+  .pill { font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 100px; border: 1px solid; }
+  .pill-blue   { color: #58a6ff; background: rgba(88,166,255,.1);  border-color: rgba(88,166,255,.25); }
+  .pill-green  { color: #3fb950; background: rgba(63,185,80,.1);   border-color: rgba(63,185,80,.25); }
+  .pill-orange { color: #ffa657; background: rgba(255,166,87,.1);  border-color: rgba(255,166,87,.25); }
+  .pill-purple { color: #bc8cff; background: rgba(188,140,255,.1); border-color: rgba(188,140,255,.25); }
+  .pill-red    { color: #f85149; background: rgba(248,81,73,.1);   border-color: rgba(248,81,73,.25); }
+  .pill-teal   { color: #39d353; background: rgba(57,211,83,.1);   border-color: rgba(57,211,83,.25); }
+  .pill-gray   { color: #8b949e; background: rgba(139,148,158,.1); border-color: rgba(139,148,158,.25); }
+  .pill-pink   { color: #f778ba; background: rgba(247,120,186,.1); border-color: rgba(247,120,186,.25); }
+
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: border-color .2s, transform .2s; display: flex; flex-direction: column; }
+  .project-card:hover { border-color: rgba(88,166,255,0.3); transform: translateY(-3px); }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 4px; }
+  .card-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .card-type { font-size: 11px; font-weight: 600; letter-spacing: .8px; text-transform: uppercase; color: var(--text2); padding: 4px 10px; border-radius: 6px; background: var(--bg3); border: 1px solid var(--border); }
+  .card-name { font-size: 19px; font-weight: 700; letter-spacing: -0.4px; margin-top: 10px; }
+  .card-desc { font-size: 13.5px; color: var(--text2); line-height: 1.65; flex: 1; }
+  .card-features { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 7px; }
+  .feature { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text2); }
+  .feature::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+
+  .formation-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 48px; }
+  .formation-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 24px; display: flex; gap: 18px; align-items: flex-start; }
+  .formation-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+  .formation-country { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+  .formation-degree { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .formation-school { font-size: 13px; color: var(--text2); }
+
+  .engagement-card { background: linear-gradient(135deg, rgba(248,81,73,.08), rgba(188,140,255,.08)); border: 1px solid rgba(248,81,73,.2); border-radius: 14px; padding: 32px; display: flex; gap: 24px; align-items: flex-start; }
+  .engagement-icon { width: 56px; height: 56px; border-radius: 14px; background: rgba(248,81,73,.12); display: flex; align-items: center; justify-content: center; font-size: 28px; flex-shrink: 0; }
+  .engagement-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .engagement-sub { font-size: 13px; color: var(--accent); font-weight: 600; margin-bottom: 12px; }
+  .engagement-desc { font-size: 14px; color: var(--text2); line-height: 1.75; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .about-text p { color: var(--text2); margin-bottom: 16px; line-height: 1.8; }
+  .skill-bar { height: 6px; border-radius: 100px; background: var(--bg3); overflow: hidden; }
+  .skill-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+  .skill-fill-pink { height: 100%; border-radius: 100px; background: linear-gradient(90deg, #c026d3, #f778ba); }
+
+  footer { border-top: 1px solid var(--border); text-align: center; padding: 40px 24px; color: var(--text2); font-size: 13px; }
+  .footer-name { font-size: 17px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+  .footer-links { display: flex; justify-content: center; gap: 24px; margin: 16px 0 12px; flex-wrap: wrap; }
+  .footer-links a { color: var(--text2); text-decoration: none; font-size: 13px; transition: color .15s; }
+  .footer-links a:hover { color: var(--accent); }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 20px; }
+    .nav-links { gap: 16px; }
+    .nav-contact { display: none; }
+    .about-grid, .formation-grid { grid-template-columns: 1fr; }
+    .stats { gap: 28px; }
+    .engagement-card { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-brand" href="#">Rafik <span>MOKDAD</span></a>
+  <div class="nav-links">
+    <a href="#projets">Projets</a>
+    <a href="#competences">Comp&#233;tences</a>
+    <a href="#formation">Formation</a>
+    <a href="#apropos">&#192; propos</a>
+  </div>
+  <div class="nav-contact">
+    <a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a>
+    <a href="tel:+213793620490">+213 793 620 490</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-badge">Disponible &middot; Alg&#233;rie</div>
+  <h1 class="hero-name">Rafik <span>MOKDAD</span></h1>
+  <div class="hero-title">
+    <strong>D&#233;veloppeur WEB Full Stack</strong> &amp; <strong>Graphic Designer</strong>
+  </div>
+  <p class="hero-desc">
+    Double formation alg&#233;rienne et canadienne. Je con&#231;ois et d&#233;veloppe des applications web et logiciels m&#233;tier sur mesure, du design &#224; la mise en production.
+  </p>
+  <div class="hero-cta">
+    <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+    <a href="#formation" class="btn btn-outline">Ma formation</a>
+  </div>
+  <div class="hero-contact">
+    <a href="mailto:rfkmokdad@gmail.com">&#9993; rfkmokdad@gmail.com</a>
+    <a href="tel:+213793620490">&#128222; +213 793 620 490</a>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Projets r&#233;alis&#233;s</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Dipl&#244;mes (DZ + CA)</div></div>
+  <div class="stat"><div class="stat-n">4</div><div class="stat-l">Apps desktop Windows</div></div>
+  <div class="stat"><div class="stat-n">10+</div><div class="stat-l">Logiciels ma&#238;tris&#233;s</div></div>
+</div>
+
+<section id="projets">
+  <div class="section-inner">
+    <div class="section-label">R&#233;alisations</div>
+    <div class="section-title">Projets d&#233;velopp&#233;s</div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(88,166,255,.1)">&#128663;</div>
+          <span class="card-type">Gestion m&#233;tier</span>
+        </div>
+        <div class="card-name">AutoLoc</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8</span><span class="pill pill-orange">MySQL</span><span class="pill pill-green">PDO</span><span class="pill pill-gray">CSS Custom</span><span class="pill pill-teal">PhpSpreadsheet</span>
+        </div>
+        <div class="card-desc">Application web de gestion de location de v&#233;hicules. Suivi des contrats, clients, chauffeurs et flotte avec calcul automatique des montants et exports Excel.</div>
+        <div class="card-features">
+          <div class="feature">Gestion v&#233;hicules, clients, contrats, chauffeurs</div>
+          <div class="feature">Calcul automatique : tarif x jours + km + chauffeur</div>
+          <div class="feature">Tableau de bord avec KPIs en temps r&#233;el</div>
+          <div class="feature">Export Excel par module, archivage s&#233;curis&#233;</div>
+          <div class="feature">Authentification s&#233;curis&#233;e sans base de donn&#233;es</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(255,166,87,.1)">&#9981;</div>
+          <span class="card-type">App Desktop + Web</span>
+        </div>
+        <div class="card-name">Pompe Meftah</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8</span><span class="pill pill-orange">MySQL</span><span class="pill pill-purple">C# WinForms</span><span class="pill pill-purple">WebView2</span><span class="pill pill-gray">JS Vanilla</span>
+        </div>
+        <div class="card-desc">Syst&#232;me de gestion RH pour une station-service. Launcher Windows s&#233;curis&#233; qui d&#233;marre Apache, MySQL et ouvre l'application dans Chrome en mode application isol&#233;.</div>
+        <div class="card-features">
+          <div class="feature">Launcher C# avec code secret + mode premier lancement</div>
+          <div class="feature">D&#233;marrage/arr&#234;t automatique d'Apache et MySQL</div>
+          <div class="feature">Pointage journalier des agents, historique complet</div>
+          <div class="feature">Export Excel, gestion des agents</div>
+          <div class="feature">R&#233;initialisation mot de passe via fichier .vbs</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(188,140,255,.1)">&#127981;</div>
+          <span class="card-type">App Desktop + Web</span>
+        </div>
+        <div class="card-name">RKMD Plastic</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8</span><span class="pill pill-orange">MySQL</span><span class="pill pill-purple">C# WinForms</span><span class="pill pill-purple">WebView2</span><span class="pill pill-gray">JS Vanilla</span>
+        </div>
+        <div class="card-desc">Application de gestion RH pour une usine de plastique. Code PIN 4 chiffres pour l'acc&#232;s, gestion des salaires, fiches d'activit&#233;s et planning hebdomadaire.</div>
+        <div class="card-features">
+          <div class="feature">Launcher Windows avec code PIN 4 chiffres (SHA-256)</div>
+          <div class="feature">Gestion des employ&#233;s, fiches de paie, historique</div>
+          <div class="feature">Planning hebdomadaire et fiche d'activit&#233;s globales</div>
+          <div class="feature">Arr&#234;t propre des services sans terminal visible</div>
+          <div class="feature">R&#233;initialisation PIN via double-clic (.vbs)</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(63,185,80,.1)">&#127947;</div>
+          <span class="card-type">App Web MVC</span>
+        </div>
+        <div class="card-name">Gestion Salle de Sport</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8 MVC</span><span class="pill pill-orange">MySQL</span><span class="pill pill-teal">Bootstrap 5</span><span class="pill pill-gray">WebSocket</span><span class="pill pill-gray">JS Vanilla</span>
+        </div>
+        <div class="card-desc">Application MVC compl&#232;te pour la gestion d'une salle de sport. Architecture maison avec membres, abonnements, boutique et statistiques avanc&#233;es.</div>
+        <div class="card-features">
+          <div class="feature">Architecture MVC maison : Router, Controller, Model</div>
+          <div class="feature">Membres, abonnements, acc&#232;s (carnet / s&#233;ance libre)</div>
+          <div class="feature">Boutique : produits, cat&#233;gories, ventes</div>
+          <div class="feature">Gestion des coachs, statistiques avanc&#233;es</div>
+          <div class="feature">Authentification fichier + page premi&#232;re connexion</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(248,81,73,.1)">&#127970;</div>
+          <span class="card-type">ERP / RH</span>
+        </div>
+        <div class="card-name">CASH Assurances &#8212; ERP RH</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8</span><span class="pill pill-orange">MySQL</span><span class="pill pill-gray">CSS Custom</span><span class="pill pill-gray">JS Vanilla</span><span class="pill pill-green">Upload fichiers</span>
+        </div>
+        <div class="card-desc">ERP RH interne pour une compagnie d'assurances nationale. Gestion compl&#232;te du personnel sur 12 agences &#224; travers l'Alg&#233;rie, avec r&#244;les et validation des acc&#232;s.</div>
+        <div class="card-features">
+          <div class="feature">Multi-agences : 12 agences (Alger, Oran, Constantine&#8230;)</div>
+          <div class="feature">R&#244;les : admin / employ&#233; / stagiaire avec permissions</div>
+          <div class="feature">Recrutement, mouvements (promotions, mutations)</div>
+          <div class="feature">Gestion documents, photos de profil</div>
+          <div class="feature">Auto-migration de la base de donn&#233;es au d&#233;marrage</div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="card-top">
+          <div class="card-icon" style="background:rgba(57,211,83,.1)">&#128202;</div>
+          <span class="card-type">Dashboard</span>
+        </div>
+        <div class="card-name">Bractive &#8212; Dashboard Planning</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8</span><span class="pill pill-orange">MySQL</span><span class="pill pill-gray">JS Vanilla</span><span class="pill pill-gray">CSS Custom</span><span class="pill pill-teal">API REST</span>
+        </div>
+        <div class="card-desc">Dashboard de suivi de planning et d'activit&#233; pour l'entreprise Bractive. Interface moderne avec API PHP, visualisation des indicateurs et export de donn&#233;es.</div>
+        <div class="card-features">
+          <div class="feature">Interface dashboard temps r&#233;el</div>
+          <div class="feature">API PHP pour alimentation des donn&#233;es</div>
+          <div class="feature">Export des donn&#233;es</div>
+          <div class="feature">Design moderne, th&#232;me clair</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="competences" style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">Stack technique</div>
+    <div class="section-title">Comp&#233;tences</div>
+    <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap:32px;">
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Back-end</div>
+        <div class="stack">
+          <span class="pill pill-blue">PHP 8</span><span class="pill pill-blue">PDO</span><span class="pill pill-orange">MySQL</span><span class="pill pill-gray">Architecture MVC</span><span class="pill pill-gray">API REST</span><span class="pill pill-green">PhpSpreadsheet</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Front-end</div>
+        <div class="stack">
+          <span class="pill pill-orange">HTML5</span><span class="pill pill-blue">CSS3</span><span class="pill pill-teal">JavaScript ES6+</span><span class="pill pill-teal">Bootstrap 5</span><span class="pill pill-gray">WebSocket</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Desktop</div>
+        <div class="stack">
+          <span class="pill pill-purple">C# .NET</span><span class="pill pill-purple">WinForms</span><span class="pill pill-purple">WebView2</span><span class="pill pill-gray">Compilation CSC</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Design graphique</div>
+        <div class="stack">
+          <span class="pill pill-pink">Adobe Illustrator</span><span class="pill pill-pink">Photoshop</span><span class="pill pill-pink">Premiere Pro</span><span class="pill pill-pink">Audacity</span><span class="pill pill-blue">Figma</span>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">Outils &amp; Productivit&#233;</div>
+        <div class="stack">
+          <span class="pill pill-red">XAMPP</span><span class="pill pill-orange">Git</span><span class="pill pill-gray">Microsoft Office</span><span class="pill pill-gray">VBScript</span><span class="pill pill-blue">SHA-256 / bcrypt</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; margin-top:48px; padding-top:40px; border-top:1px solid var(--border);">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">D&#233;veloppement web</div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">PHP / MySQL</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+        </div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">HTML / CSS / JavaScript</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">Architecture MVC / API REST</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
+        </div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">C# / WinForms / WebView2</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:4px;text-transform:uppercase;letter-spacing:1px;">Design &amp; Multim&#233;dia</div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">Adobe Illustrator / Photoshop</label>
+          <div class="skill-bar"><div class="skill-fill-pink" style="width:88%"></div></div>
+        </div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">Figma (UI/UX)</label>
+          <div class="skill-bar"><div class="skill-fill-pink" style="width:82%"></div></div>
+        </div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">Premiere Pro / Audacity</label>
+          <div class="skill-bar"><div class="skill-fill-pink" style="width:78%"></div></div>
+        </div>
+        <div>
+          <label style="font-size:13px;color:var(--text2);display:block;margin-bottom:6px;font-weight:500;">Conception BDD</label>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="section-inner">
+    <div class="section-label">Parcours acad&#233;mique</div>
+    <div class="section-title">Double formation</div>
+    <div class="formation-grid">
+      <div class="formation-card">
+        <div class="formation-icon" style="background:rgba(0,140,255,.1)">&#127465;&#127487;</div>
+        <div>
+          <div class="formation-country" style="color:var(--accent)">Alg&#233;rie</div>
+          <div class="formation-degree">BTS &#8212; D&#233;veloppement Web &amp; Multim&#233;dias</div>
+          <div class="formation-school">Brevet de Technicien Sup&#233;rieur · Formation nationale</div>
+        </div>
+      </div>
+      <div class="formation-card">
+        <div class="formation-icon" style="background:rgba(255,0,0,.08)">&#127464;&#127462;</div>
+        <div>
+          <div class="formation-country" style="color:var(--red)">Canada</div>
+          <div class="formation-degree">AEC &#8212; D&#233;veloppement Web</div>
+          <div class="formation-school">Attestation d'&#201;tudes Coll&#233;giales · C&#233;gep de Sherbrooke</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-bottom:16px;">Engagement associatif</div>
+    <div class="engagement-card">
+      <div class="engagement-icon">&#127895;</div>
+      <div>
+        <div class="engagement-title">Fondation MAIRA &#8212; Alg&#233;rie</div>
+        <div class="engagement-sub">Animateur &amp; Repr&#233;sentant officiel</div>
+        <div class="engagement-desc">
+          Je suis l'animateur et le repr&#233;sentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Alg&#233;rie. Engag&#233; dans des projets &#224; impact social et sanitaire, je contribue &#224; la sensibilisation, &#224; l'accompagnement des patients et &#224; la visibilit&#233; de ces maladies m&#233;connues aupr&#232;s du grand public et des institutions.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apropos" style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="section-label">&#192; propos</div>
+    <div class="section-title">Mon profil</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>D&#233;veloppeur WEB Full Stack et Graphic Designer avec une <strong>double formation alg&#233;rienne et canadienne</strong>, je combine des comp&#233;tences techniques solides en d&#233;veloppement web avec une sensibilit&#233; cr&#233;ative en design graphique et multim&#233;dia.</p>
+        <p>Je con&#231;ois et d&#233;veloppe des <strong>applications m&#233;tier sur mesure</strong> pour les entreprises alg&#233;riennes &#8212; PME, usines, salles de sport, compagnies d'assurances, stations-service. Chaque projet va de la maquette Figma &#224; la mise en production sur site.</p>
+        <p>Mes solutions sont l&#233;g&#232;res, d&#233;ployables en local sans infrastructure cloud, et pens&#233;es pour &#234;tre <strong>simples &#224; utiliser</strong> au quotidien. J'associe souvent un back-end PHP/MySQL robuste &#224; un launcher Windows en C# pour une exp&#233;rience desktop compl&#232;te.</p>
+        <p>Au-del&#224; du code, je m'engage activement dans <strong>des projets &#224; impact social</strong> &#224; travers la fondation MAIRA, ce qui me conf&#232;re une vision humaine et utile du digital.</p>
+      </div>
+      <div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:14px;padding:24px;">
+          <div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text2);margin-bottom:20px;">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:18px;width:28px;text-align:center;">&#9993;</span>
+              <div>
+                <div style="font-size:11px;color:var(--text2);margin-bottom:2px;">Email</div>
+                <a href="mailto:rfkmokdad@gmail.com" style="color:var(--accent);text-decoration:none;font-size:14px;">rfkmokdad@gmail.com</a>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:18px;width:28px;text-align:center;">&#128222;</span>
+              <div>
+                <div style="font-size:11px;color:var(--text2);margin-bottom:2px;">T&#233;l&#233;phone</div>
+                <a href="tel:+213793620490" style="color:var(--accent);text-decoration:none;font-size:14px;">+213 793 620 490</a>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:18px;width:28px;text-align:center;">&#128205;</span>
+              <div>
+                <div style="font-size:11px;color:var(--text2);margin-bottom:2px;">Localisation</div>
+                <div style="font-size:14px;color:var(--text);">Alg&#233;rie</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <span style="font-size:18px;width:28px;text-align:center;">&#127891;</span>
+              <div>
+                <div style="font-size:11px;color:var(--text2);margin-bottom:2px;">Dipl&#244;mes</div>
+                <div style="font-size:13px;color:var(--text);">BTS Alg&#233;rie &middot; AEC Sherbrooke (CA)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-name">Rafik MOKDAD</div>
+  <div style="color:var(--text2);font-size:13px;margin-bottom:16px;">D&#233;veloppeur WEB Full Stack &amp; Graphic Designer &middot; Alg&#233;rie</div>
+  <div class="footer-links">
+    <a href="#projets">Projets</a>
+    <a href="#competences">Comp&#233;tences</a>
+    <a href="#formation">Formation</a>
+    <a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a>
+    <a href="tel:+213793620490">+213 793 620 490</a>
+  </div>
+  <div style="margin-top:8px;font-size:12px;color:rgba(139,148,158,0.6);">PHP &middot; MySQL &middot; C# &middot; JavaScript &middot; Adobe Suite &middot; Figma</div>
+</footer>
+
+</body>
+</html>
