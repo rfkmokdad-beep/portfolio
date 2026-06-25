@@ -4,63 +4,37 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rafik MOKDAD — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark')</script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --blue:#2563eb;
-  --blue-light:#3b82f6;
-  --indigo:#1e40af;
-  --bg:#ffffff;
-  --bg2:#f0f5ff;
-  --bg3:#e8f0fe;
-  --text:#1e1b2e;
-  --text2:#6c6779;
-  --border:#dde6f5;
-  --shadow:0 4px 24px rgba(37,99,235,.10);
-  --shadow-hover:0 8px 40px rgba(30,64,175,.20);
-  --radius:14px;
-  --font:'Poppins',sans-serif;
-}
+:root{--blue:#2563eb;--indigo:#1e40af;--bg:#fff;--bg2:#f0f5ff;--bg3:#e8f0fe;--text:#1e1b2e;--text2:#6c6779;--border:#dde6f5;--shadow:0 4px 24px rgba(37,99,235,.10);--shadow-h:0 8px 40px rgba(30,64,175,.20);--r:14px;--f:'Poppins',sans-serif}
+html.dark{--bg:#0d1117;--bg2:#161b22;--bg3:#1c2128;--text:#e6edf3;--text2:#8b949e;--border:#30363d;--shadow:0 4px 24px rgba(0,0,0,.3);--shadow-h:0 8px 40px rgba(37,99,235,.25)}
+html.dark .project-card,html.dark .hero-card,html.dark .formation-card,html.dark .contact-card{background:#161b22}
+html.dark nav{background:rgba(13,17,23,.92);border-color:#30363d}
+html.dark .tool-pill{background:#161b22}
+html.dark .maira-card{background:linear-gradient(135deg,rgba(37,99,235,.08),rgba(30,64,175,.08));border-color:rgba(37,99,235,.25)}
+html.dark .btn-outline{border-color:#30363d;color:var(--text)}
+html.dark .skill-bar,html.dark .hcs-bar{background:#1c2128}
+html.dark .contact-item-icon{background:#1c2128}
+html.dark .section-full{background:var(--bg2);border-color:var(--border)}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
-
-/* SCROLLBAR */
-::-webkit-scrollbar{width:6px}
-::-webkit-scrollbar-track{background:#f1effe}
-::-webkit-scrollbar-thumb{background:var(--indigo);border-radius:99px}
-
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(255,255,255,0.9);backdrop-filter:blur(16px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;height:64px;
-}
-.nav-logo{font-weight:800;font-size:18px;color:var(--text);text-decoration:none;letter-spacing:-0.5px}
+body{font-family:var(--f);background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:99px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;transition:background .3s,border-color .3s}
+html.dark nav{background:rgba(13,17,23,.9)}
+.nav-logo{font-weight:800;font-size:18px;color:var(--text);text-decoration:none;letter-spacing:-.5px}
 .nav-logo span{color:var(--blue)}
 .nav-links{display:flex;gap:32px}
 .nav-links a{color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--blue)}
-.nav-contact{display:flex;gap:16px;align-items:center}
-.nav-contact a{font-size:13px;color:var(--text2);text-decoration:none;font-weight:500;transition:color .2s}
-.nav-contact a:hover{color:var(--indigo)}
-
-/* HERO */
-.hero{
-  min-height:100vh;display:flex;align-items:center;
-  padding:100px 48px 60px;max-width:1200px;margin:0 auto;
-  gap:60px;
-}
+.nav-actions{display:flex;gap:8px;align-items:center}
+.nav-btn{border:1px solid var(--border);border-radius:8px;background:transparent;cursor:pointer;padding:6px 12px;font-size:12px;font-weight:700;color:var(--text2);font-family:var(--f);transition:all .2s;display:flex;align-items:center;gap:5px;line-height:1}
+.nav-btn:hover{border-color:var(--blue);color:var(--blue)}
+.nav-btn svg{width:14px;height:14px;flex-shrink:0}
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 48px 60px;max-width:1200px;margin:0 auto;gap:60px}
 .hero-content{flex:1}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--bg3);border:1px solid rgba(37,99,235,.2);
-  border-radius:99px;padding:6px 16px;
-  font-size:12px;font-weight:600;color:var(--indigo);
-  letter-spacing:.5px;text-transform:uppercase;margin-bottom:24px;
-}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--bg3);border:1px solid rgba(37,99,235,.2);border-radius:99px;padding:6px 16px;font-size:12px;font-weight:600;color:var(--blue);letter-spacing:.5px;text-transform:uppercase;margin-bottom:24px}
 .hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:#22c55e;display:inline-block}
 .hero-name{font-size:clamp(38px,5vw,64px);font-weight:800;letter-spacing:-2px;line-height:1.05;margin-bottom:8px}
 .hero-name .last{color:var(--blue)}
@@ -68,7 +42,7 @@ nav{
 .hero-role strong{color:var(--indigo)}
 .hero-desc{font-size:15px;color:var(--text2);max-width:520px;line-height:1.8;margin-bottom:36px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:40px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:99px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:var(--font)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:99px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer;font-family:var(--f)}
 .btn-primary{background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;box-shadow:0 4px 20px rgba(37,99,235,.3)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.4)}
 .btn-outline{background:transparent;color:var(--text);border:2px solid var(--border)}
@@ -77,57 +51,37 @@ nav{
 .hero-contacts a{display:flex;align-items:center;gap:6px;color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .hero-contacts a:hover{color:var(--blue)}
 .hero-contacts svg{width:16px;height:16px;flex-shrink:0}
-.hero-visual{flex:0 0 340px;display:flex;justify-content:center;align-items:center}
-.hero-card{
-  background:var(--bg2);border:1px solid var(--border);
-  border-radius:24px;padding:32px;width:300px;
-  box-shadow:var(--shadow);
-}
-.hero-card-avatar{
-  width:72px;height:72px;border-radius:50%;
-  background:linear-gradient(135deg,var(--blue),var(--indigo));
-  display:flex;align-items:center;justify-content:center;
-  font-size:26px;font-weight:800;color:#fff;margin-bottom:16px;
-}
+.hero-visual{flex:0 0 340px;display:flex;justify-content:center}
+.hero-card{background:var(--bg2);border:1px solid var(--border);border-radius:24px;padding:32px;width:300px;box-shadow:var(--shadow);transition:background .3s,border-color .3s}
+.hero-card-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--indigo));display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff;margin-bottom:16px}
 .hero-card-name{font-size:16px;font-weight:700;margin-bottom:2px}
 .hero-card-role{font-size:12px;color:var(--text2);margin-bottom:20px}
 .hero-card-stats{display:flex;flex-direction:column;gap:12px}
 .hcs-item{display:flex;align-items:center;justify-content:space-between;font-size:13px}
 .hcs-label{color:var(--text2);font-weight:500}
-.hcs-val{font-weight:700;color:var(--indigo)}
-.hcs-bar{height:4px;background:#dbeafe;border-radius:99px;margin-top:4px;overflow:hidden}
+.hcs-val{font-weight:700;color:var(--blue)}
+.hcs-bar{height:4px;background:#dbeafe;border-radius:99px;margin-top:4px;overflow:hidden;transition:background .3s}
 .hcs-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--indigo));border-radius:99px}
-
-/* SECTION COMMON */
 .section{padding:80px 48px;max-width:1200px;margin:0 auto}
-.section-full{padding:80px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.section-full .section-inner{max-width:1200px;margin:0 auto;padding:0 48px}
+.section-full{padding:80px 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);transition:background .3s,border-color .3s}
+.si{max-width:1200px;margin:0 auto;padding:0 48px}
 .section-num{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
-.section-title{font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.8px;margin-bottom:48px;color:var(--text)}
+.section-title{font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-.8px;margin-bottom:48px;color:var(--text)}
 .section-title span{color:var(--blue)}
-
-/* PROJETS */
 .projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px}
-.project-card{
-  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-  padding:28px;transition:all .25s;position:relative;overflow:hidden;
-}
-.project-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--blue),var(--indigo));
-  transform:scaleX(0);transform-origin:left;transition:transform .3s;
-}
-.project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:rgba(37,99,235,.2)}
+.project-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:all .25s;position:relative;overflow:hidden}
+.project-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--indigo));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.project-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);border-color:rgba(37,99,235,.2)}
 .project-card:hover::before{transform:scaleX(1)}
-.card-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px}
-.card-type{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--indigo);background:var(--bg3);padding:4px 10px;border-radius:6px}
+.card-header{display:flex;margin-bottom:12px}
+.card-type{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--blue);background:var(--bg3);padding:4px 10px;border-radius:6px}
 .card-name{font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text)}
 .card-desc{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:16px}
 .card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
 .tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid}
 .tag-php{color:#6366f1;background:rgba(99,102,241,.08);border-color:rgba(99,102,241,.2)}
 .tag-mysql{color:#f59e0b;background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.2)}
-.tag-cs{color:#7c3aed;background:rgba(37,99,235,.08);border-color:rgba(37,99,235,.2)}
+.tag-cs{color:#7c3aed;background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.2)}
 .tag-js{color:#10b981;background:rgba(16,185,129,.08);border-color:rgba(16,185,129,.2)}
 .tag-css{color:#3b82f6;background:rgba(59,130,246,.08);border-color:rgba(59,130,246,.2)}
 .tag-boot{color:#0ea5e9;background:rgba(14,165,233,.08);border-color:rgba(14,165,233,.2)}
@@ -135,456 +89,243 @@ nav{
 .card-features{display:flex;flex-direction:column;gap:6px;padding-top:16px;border-top:1px solid var(--border)}
 .card-feature{font-size:12px;color:var(--text2);display:flex;align-items:flex-start;gap:8px}
 .card-feature::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--blue);flex-shrink:0;margin-top:6px}
-
-/* COMPETENCES */
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
-.skills-category-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--indigo);margin-bottom:20px}
+.scat{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--indigo);margin-bottom:20px}
 .skill-item{margin-bottom:18px}
 .skill-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .skill-name{font-size:13px;font-weight:600;color:var(--text)}
 .skill-pct{font-size:12px;font-weight:700;color:var(--blue)}
-.skill-bar{height:6px;background:#dbeafe;border-radius:99px;overflow:hidden}
-.skill-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--indigo));transition:width 1s ease}
-
-/* OUTILS */
+.skill-bar{height:6px;background:#dbeafe;border-radius:99px;overflow:hidden;transition:background .3s}
+.skill-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--indigo))}
 .tools-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
-.tool-pill{
-  display:flex;align-items:center;gap:8px;
-  padding:8px 16px;border-radius:99px;
-  border:1px solid var(--border);background:#fff;
-  font-size:13px;font-weight:500;color:var(--text2);
-  transition:all .2s;
-}
-.tool-pill:hover{border-color:var(--blue);color:var(--blue);background:rgba(37,99,235,.04)}
-
-/* FORMATION */
+.tool-pill{display:flex;align-items:center;padding:8px 16px;border-radius:99px;border:1px solid var(--border);background:#fff;font-size:13px;font-weight:500;color:var(--text2);transition:all .2s}
+.tool-pill:hover{border-color:var(--blue);color:var(--blue)}
 .formation-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
-.formation-card{
-  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-  padding:28px;display:flex;gap:20px;align-items:flex-start;
-  transition:all .25s;
-}
+.formation-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px;display:flex;gap:20px;align-items:flex-start;transition:all .25s}
 .formation-card:hover{box-shadow:var(--shadow);border-color:rgba(37,99,235,.2);transform:translateY(-2px)}
-.formation-flag{
-  width:48px;height:48px;border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;font-weight:800;flex-shrink:0;
-  border:2px solid var(--border);
-}
+.formation-flag{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid var(--border)}
 .formation-country{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:4px}
 .formation-degree{font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
 .formation-school{font-size:13px;color:var(--text2)}
-
-/* MAIRA */
-.maira-card{
-  background:linear-gradient(135deg,rgba(37,99,235,.06),rgba(37,99,235,.06));
-  border:1px solid rgba(37,99,235,.2);border-radius:var(--radius);
-  padding:36px;display:flex;gap:28px;align-items:flex-start;
-}
-.maira-icon{
-  width:60px;height:60px;border-radius:16px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--blue),var(--indigo));
-  display:flex;align-items:center;justify-content:center;
-}
-.maira-icon svg{width:28px;height:28px;color:#fff;fill:none;stroke:#fff;stroke-width:2}
+.maira-card{background:linear-gradient(135deg,rgba(37,99,235,.06),rgba(30,64,175,.06));border:1px solid rgba(37,99,235,.2);border-radius:var(--r);padding:36px;display:flex;gap:28px;align-items:flex-start}
+.maira-icon{width:60px;height:60px;border-radius:16px;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--indigo));display:flex;align-items:center;justify-content:center}
+.maira-icon svg{width:28px;height:28px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .maira-title{font-size:18px;font-weight:700;color:var(--text);margin-bottom:4px}
 .maira-sub{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--blue);margin-bottom:12px}
 .maira-desc{font-size:14px;color:var(--text2);line-height:1.8}
-
-/* CONTACT CARD */
-.contact-card{
-  background:#fff;border:1px solid var(--border);border-radius:var(--radius);
-  padding:28px;box-shadow:var(--shadow);
-}
+.contact-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);transition:background .3s,border-color .3s}
 .contact-card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--text2);margin-bottom:20px}
 .contact-item{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.contact-item-icon{
-  width:40px;height:40px;border-radius:10px;background:var(--bg3);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.contact-item-icon svg{width:18px;height:18px;color:var(--indigo);stroke:var(--indigo);fill:none;stroke-width:2}
+.contact-item-icon{width:40px;height:40px;border-radius:10px;background:var(--bg3);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .3s}
+.contact-item-icon svg{width:18px;height:18px;stroke:var(--blue);fill:none;stroke-width:2}
 .contact-item-label{font-size:11px;color:var(--text2);margin-bottom:2px}
 .contact-item-value{font-size:14px;font-weight:600}
 .contact-item-value a{color:var(--text);text-decoration:none;transition:color .2s}
 .contact-item-value a:hover{color:var(--blue)}
-
-/* ABOUT GRID */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
 .about-text p{color:var(--text2);margin-bottom:16px;line-height:1.9;font-size:14px}
 .about-text strong{color:var(--text);font-weight:600}
-
-/* FOOTER */
-footer{
-  text-align:center;padding:40px 24px;
-  border-top:1px solid var(--border);
-  background:var(--bg2);
-}
+footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);background:var(--bg2);transition:background .3s,border-color .3s}
 .footer-name{font-size:16px;font-weight:800;color:var(--text);margin-bottom:6px}
 .footer-sub{font-size:13px;color:var(--text2);margin-bottom:16px}
 .footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
 .footer-links a{color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .footer-links a:hover{color:var(--blue)}
-
-@media(max-width:900px){
-  nav{padding:0 20px}
-  .nav-links,.nav-contact{display:none}
-  .hero{flex-direction:column;padding:100px 24px 60px;gap:40px}
-  .hero-visual{display:none}
-  .section{padding:60px 24px}
-  .section-full .section-inner{padding:0 24px}
-  .skills-grid,.about-grid,.formation-grid{grid-template-columns:1fr}
-}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.hero{flex-direction:column;padding:100px 24px 60px;gap:40px}.hero-visual{display:none}.section{padding:60px 24px}.si{padding:0 24px}.skills-grid,.about-grid,.formation-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav>
   <a class="nav-logo" href="#">Rafik<span>.</span></a>
   <div class="nav-links">
-    <a href="#projets">Projets</a>
-    <a href="#competences">Comp&eacute;tences</a>
-    <a href="#formation">Formation</a>
-    <a href="#apropos">&Agrave; propos</a>
+    <a href="#projets" data-i18n="np">Projets</a>
+    <a href="#competences" data-i18n="ns">Comp&eacute;tences</a>
+    <a href="#formation" data-i18n="ne">Formation</a>
+    <a href="#apropos" data-i18n="na">&Agrave; propos</a>
   </div>
-  <div class="nav-contact">
-    <a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a>
-    <a href="tel:+213793620490">+213 793 620 490</a>
+  <div class="nav-actions">
+    <button id="btn-lang" class="nav-btn">EN</button>
+    <button id="btn-dark" class="nav-btn" title="Mode sombre / Dark mode">
+      <svg id="ico-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg id="ico-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
   </div>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-content">
-    <div class="hero-tag">Disponible &middot; Alg&eacute;rie</div>
+    <div class="hero-tag" data-i18n="hbadge">Disponible &middot; Alg&eacute;rie</div>
     <h1 class="hero-name">Rafik<br><span class="last">MOKDAD</span></h1>
-    <div class="hero-role"><strong>D&eacute;veloppeur WEB Full Stack</strong> &amp; Graphic Designer</div>
-    <p class="hero-desc">Double formation alg&eacute;rienne et canadienne. Je con&ccedil;ois et d&eacute;veloppe des applications web et logiciels m&eacute;tier sur mesure, du design &agrave; la mise en production.</p>
+    <div class="hero-role" data-i18n="hrole"><strong>D&eacute;veloppeur WEB Full Stack</strong> &amp; Graphic Designer</div>
+    <p class="hero-desc" data-i18n="hdesc">Double formation alg&eacute;rienne et canadienne. Je con&ccedil;ois et d&eacute;veloppe des applications web et logiciels m&eacute;tier sur mesure, du design &agrave; la mise en production.</p>
     <div class="hero-btns">
-      <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-      <a href="#apropos" class="btn btn-outline">&Agrave; propos</a>
+      <a href="#projets" class="btn btn-primary" data-i18n="hb1">Voir mes projets</a>
+      <a href="#apropos" class="btn btn-outline" data-i18n="hb2">&Agrave; propos</a>
     </div>
     <div class="hero-contacts">
-      <a href="mailto:rfkmokdad@gmail.com">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        rfkmokdad@gmail.com
-      </a>
-      <a href="tel:+213793620490">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.98-1.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        +213 793 620 490
-      </a>
+      <a href="mailto:rfkmokdad@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>rfkmokdad@gmail.com</a>
+      <a href="tel:+213793620490"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.98-1.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+213 793 620 490</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="hero-card">
-      <div class="hero-card-avatar">RM</div>
-      <div class="hero-card-name">Rafik MOKDAD</div>
-      <div class="hero-card-role">Full Stack &amp; Graphic Designer</div>
-      <div class="hero-card-stats">
-        <div>
-          <div class="hcs-item"><span class="hcs-label">D&eacute;veloppement web</span><span class="hcs-val">92%</span></div>
-          <div class="hcs-bar"><div class="hcs-fill" style="width:92%"></div></div>
-        </div>
-        <div>
-          <div class="hcs-item"><span class="hcs-label">Design graphique</span><span class="hcs-val">88%</span></div>
-          <div class="hcs-bar"><div class="hcs-fill" style="width:88%"></div></div>
-        </div>
-        <div>
-          <div class="hcs-item"><span class="hcs-label">Apps desktop (C#)</span><span class="hcs-val">76%</span></div>
-          <div class="hcs-bar"><div class="hcs-fill" style="width:76%"></div></div>
-        </div>
-        <div>
-          <div class="hcs-item"><span class="hcs-label">Conception BDD</span><span class="hcs-val">90%</span></div>
-          <div class="hcs-bar"><div class="hcs-fill" style="width:90%"></div></div>
-        </div>
-      </div>
+  <div class="hero-visual"><div class="hero-card">
+    <div class="hero-card-avatar">RM</div>
+    <div class="hero-card-name">Rafik MOKDAD</div>
+    <div class="hero-card-role">Full Stack &amp; Graphic Designer</div>
+    <div class="hero-card-stats">
+      <div><div class="hcs-item"><span class="hcs-label" data-i18n="hs1">D&eacute;veloppement web</span><span class="hcs-val">92%</span></div><div class="hcs-bar"><div class="hcs-fill" style="width:92%"></div></div></div>
+      <div><div class="hcs-item"><span class="hcs-label" data-i18n="hs2">Design graphique</span><span class="hcs-val">88%</span></div><div class="hcs-bar"><div class="hcs-fill" style="width:88%"></div></div></div>
+      <div><div class="hcs-item"><span class="hcs-label" data-i18n="hs3">Apps desktop (C#)</span><span class="hcs-val">76%</span></div><div class="hcs-bar"><div class="hcs-fill" style="width:76%"></div></div></div>
+      <div><div class="hcs-item"><span class="hcs-label" data-i18n="hs4">Conception BDD</span><span class="hcs-val">90%</span></div><div class="hcs-bar"><div class="hcs-fill" style="width:90%"></div></div></div>
     </div>
+  </div></div>
+</div><section id="projets" class="section-full"><div class="si">
+  <div class="section-num" data-i18n="s01n">01 &mdash; R&eacute;alisations</div>
+  <div class="section-title" data-i18n="s01t">Projets <span>d&eacute;velopp&eacute;s</span></div>
+  <div class="projects-grid">
+    <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p1t">Gestion m&eacute;tier</div></div><div class="card-name">AutoLoc</div><div class="card-desc" data-i18n="p1d">Application web de gestion de location de v&eacute;hicules. Suivi des contrats, clients, chauffeurs et flotte avec calcul automatique et exports Excel.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-css">PDO</span><span class="tag tag-gray">CSS Custom</span><span class="tag tag-js">PhpSpreadsheet</span></div><div class="card-features"><div class="card-feature" data-i18n="p1f1">G&eacute;ration v&eacute;hicules, clients, contrats, chauffeurs</div><div class="card-feature" data-i18n="p1f2">Calcul automatique : tarif &times; jours + km + chauffeur</div><div class="card-feature" data-i18n="p1f3">Tableau de bord KPIs, export Excel, archivage</div><div class="card-feature" data-i18n="p1f4">Authentification s&eacute;curis&eacute;e sans base de donn&eacute;es</div></div></div>
+    <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p2t">App Desktop + Web</div></div><div class="card-name">Pompe Meftah</div><div class="card-desc" data-i18n="p2d">Syst&egrave;me de gestion RH pour une station-service avec launcher Windows s&eacute;curis&eacute; qui d&eacute;marre Apache, MySQL et ouvre l'app en mode isol&eacute;.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-cs">C# WinForms</span><span class="tag tag-cs">WebView2</span></div><div class="card-features"><div class="card-feature" data-i18n="p2f1">Launcher C# avec code secret + premier lancement</div><div class="card-feature" data-i18n="p2f2">D&eacute;marrage/arr&ecirc;t automatique Apache et MySQL</div><div class="card-feature" data-i18n="p2f3">Pointage journalier, historique, export Excel</div></div></div>
+    <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p3t">App Desktop + Web</div></div><div class="card-name">RKMD Plastic</div><div class="card-desc" data-i18n="p3d">Application de gestion RH pour une usine de plastique. Code PIN 4 chiffres, salaires, fiches d'activit&eacute;s et planning hebdomadaire.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-cs">C# WinForms</span><span class="tag tag-cs">WebView2</span></div><div class="card-features"><div class="card-feature" data-i18n="p3f1">Launcher PIN 4 chiffres s&eacute;curis&eacute; SHA-256</div><div class="card-feature" data-i18n="p3f2">Employ&eacute;s, fiches de paie, historique, planning</div><div class="card-feature" data-i18n="p3f3">Arr&ecirc;t propre des services, r&eacute;initialisation .vbs</div></div></div>
+    <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p4t">App Web MVC</div></div><div class="card-name">Gestion Salle de Sport</div><div class="card-desc" data-i18n="p4d">Application MVC compl&egrave;te pour salle de sport. Architecture maison (Router, Controller, Model) avec membres, abonnements et boutique.</div><div class="card-tags"><span class="tag tag-php">PHP 8 MVC</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-boot">Bootstrap 5</span><span class="tag tag-js">WebSocket</span></div><div class="card-features"><div class="card-feature" data-i18n="p4f1">Architecture MVC maison : Router, Controller, Model</div><div class="card-feature" data-i18n="p4f2">Membres, abonnements, acc&egrave;s carnet / s&eacute;ance</div><div class="card-feature" data-i18n="p4f3">Boutique, coachs, statistiques avanc&eacute;es</div></div></div>
+    <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p5t">ERP / RH</div></div><div class="card-name">CASH Assurances &mdash; ERP RH</div><div class="card-desc" data-i18n="p5d">ERP RH interne pour une compagnie d'assurances nationale. Personnel sur 12 agences &agrave; travers l'Alg&eacute;rie, r&ocirc;les et validation des acc&egrave;s.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-js">JS</span><span class="tag tag-gray">Upload fichiers</span></div><div class="card-features"><div class="card-feature" data-i18n="p5f1">Multi-agences : 12 villes alg&eacute;riennes</div><div class="card-feature" data-i18n="p5f2">R&ocirc;les admin / employ&eacute; / stagiaire</div><div class="card-feature" data-i18n="p5f3">Recrutement, mouvements, documents, photos</div></div></div>
+    <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p6t">Dashboard</div></div><div class="card-name">Bractive &mdash; Dashboard Planning</div><div class="card-desc" data-i18n="p6d">Dashboard de suivi de planning et d'activit&eacute; pour l'entreprise Bractive. API PHP, visualisation des indicateurs, export de donn&eacute;es.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-js">JS</span><span class="tag tag-gray">API REST</span></div><div class="card-features"><div class="card-feature" data-i18n="p6f1">Interface dashboard temps r&eacute;el</div><div class="card-feature" data-i18n="p6f2">API PHP, visualisation des KPIs</div><div class="card-feature" data-i18n="p6f3">Export des donn&eacute;es, design moderne</div></div></div>
   </div>
-</div>
-
-<!-- PROJETS -->
-<section id="projets" class="section-full">
-  <div class="section-inner">
-    <div class="section-num">01 &mdash; R&eacute;alisations</div>
-    <div class="section-title">Projets <span>d&eacute;velopp&eacute;s</span></div>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="card-header"><div class="card-type">Gestion m&eacute;tier</div></div>
-        <div class="card-name">AutoLoc</div>
-        <div class="card-desc">Application web de gestion de location de v&eacute;hicules. Suivi des contrats, clients, chauffeurs et flotte avec calcul automatique et exports Excel.</div>
-        <div class="card-tags">
-          <span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-css">PDO</span><span class="tag tag-gray">CSS Custom</span><span class="tag tag-js">PhpSpreadsheet</span>
-        </div>
-        <div class="card-features">
-          <div class="card-feature">G&eacute;ration v&eacute;hicules, clients, contrats, chauffeurs</div>
-          <div class="card-feature">Calcul automatique : tarif &times; jours + km + chauffeur</div>
-          <div class="card-feature">Tableau de bord KPIs, export Excel, archivage</div>
-          <div class="card-feature">Authentification s&eacute;curis&eacute;e sans base de donn&eacute;es</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header"><div class="card-type">App Desktop + Web</div></div>
-        <div class="card-name">Pompe Meftah</div>
-        <div class="card-desc">Syst&egrave;me de gestion RH pour une station-service avec launcher Windows s&eacute;curis&eacute; qui d&eacute;marre Apache, MySQL et ouvre l'app en mode isol&eacute;.</div>
-        <div class="card-tags">
-          <span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-cs">C# WinForms</span><span class="tag tag-cs">WebView2</span><span class="tag tag-js">JS</span>
-        </div>
-        <div class="card-features">
-          <div class="card-feature">Launcher C# avec code secret + premier lancement</div>
-          <div class="card-feature">D&eacute;marrage/arr&ecirc;t automatique Apache et MySQL</div>
-          <div class="card-feature">Pointage journalier, historique, export Excel</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header"><div class="card-type">App Desktop + Web</div></div>
-        <div class="card-name">RKMD Plastic</div>
-        <div class="card-desc">Application de gestion RH pour une usine de plastique. Code PIN 4 chiffres, salaires, fiches d'activit&eacute;s et planning hebdomadaire.</div>
-        <div class="card-tags">
-          <span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-cs">C# WinForms</span><span class="tag tag-cs">WebView2</span>
-        </div>
-        <div class="card-features">
-          <div class="card-feature">Launcher PIN 4 chiffres s&eacute;curis&eacute; SHA-256</div>
-          <div class="card-feature">Employ&eacute;s, fiches de paie, historique, planning</div>
-          <div class="card-feature">Arr&ecirc;t propre des services, r&eacute;initialisation .vbs</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header"><div class="card-type">App Web MVC</div></div>
-        <div class="card-name">Gestion Salle de Sport</div>
-        <div class="card-desc">Application MVC compl&egrave;te pour salle de sport. Architecture maison (Router, Controller, Model) avec membres, abonnements et boutique.</div>
-        <div class="card-tags">
-          <span class="tag tag-php">PHP 8 MVC</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-boot">Bootstrap 5</span><span class="tag tag-js">WebSocket</span>
-        </div>
-        <div class="card-features">
-          <div class="card-feature">Architecture MVC maison : Router, Controller, Model</div>
-          <div class="card-feature">Membres, abonnements, acc&egrave;s carnet / s&eacute;ance</div>
-          <div class="card-feature">Boutique, coachs, statistiques avanc&eacute;es</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header"><div class="card-type">ERP / RH</div></div>
-        <div class="card-name">CASH Assurances &mdash; ERP RH</div>
-        <div class="card-desc">ERP RH interne pour une compagnie d'assurances nationale. Personnel sur 12 agences &agrave; travers l'Alg&eacute;rie, r&ocirc;les et validation des acc&egrave;s.</div>
-        <div class="card-tags">
-          <span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-js">JS</span><span class="tag tag-gray">Upload fichiers</span>
-        </div>
-        <div class="card-features">
-          <div class="card-feature">Multi-agences : 12 villes alg&eacute;riennes</div>
-          <div class="card-feature">R&ocirc;les admin / employ&eacute; / stagiaire</div>
-          <div class="card-feature">Recrutement, mouvements, documents, photos</div>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="card-header"><div class="card-type">Dashboard</div></div>
-        <div class="card-name">Bractive &mdash; Dashboard Planning</div>
-        <div class="card-desc">Dashboard de suivi de planning et d'activit&eacute; pour l'entreprise Bractive. API PHP, visualisation des indicateurs, export de donn&eacute;es.</div>
-        <div class="card-tags">
-          <span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-js">JS</span><span class="tag tag-gray">API REST</span>
-        </div>
-        <div class="card-features">
-          <div class="card-feature">Interface dashboard temps r&eacute;el</div>
-          <div class="card-feature">API PHP, visualisation des KPIs</div>
-          <div class="card-feature">Export des donn&eacute;es, design moderne</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- COMPETENCES -->
+</div></section>
 <section id="competences" class="section">
-  <div class="section-num">02 &mdash; Stack technique</div>
-  <div class="section-title">Comp&eacute;tences <span>&amp; outils</span></div>
+  <div class="section-num" data-i18n="s02n">02 &mdash; Stack technique</div>
+  <div class="section-title" data-i18n="s02t">Comp&eacute;tences <span>&amp; outils</span></div>
   <div class="skills-grid">
-    <div>
-      <div class="skills-category-title">D&eacute;veloppement web</div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">PHP 8 / MySQL</span><span class="skill-pct">92%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">HTML / CSS / JavaScript</span><span class="skill-pct">88%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Architecture MVC / API REST</span><span class="skill-pct">82%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Bootstrap 5 / WebSocket</span><span class="skill-pct">80%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">C# / WinForms / WebView2</span><span class="skill-pct">76%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Conception base de donn&eacute;es</span><span class="skill-pct">90%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-      </div>
+    <div><div class="scat" data-i18n="sk1">D&eacute;veloppement web</div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">PHP 8 / MySQL</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">HTML / CSS / JavaScript</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Architecture MVC / API REST</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Bootstrap 5 / WebSocket</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">C# / WinForms / WebView2</span><span class="skill-pct">76%</span></div><div class="skill-bar"><div class="skill-fill" style="width:76%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name" data-i18n="skdb">Conception base de donn&eacute;es</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
     </div>
-    <div>
-      <div class="skills-category-title">Design &amp; Multim&eacute;dia</div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Adobe Illustrator</span><span class="skill-pct">88%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Adobe Photoshop</span><span class="skill-pct">85%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Figma (UI/UX)</span><span class="skill-pct">82%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Premiere Pro</span><span class="skill-pct">78%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Audacity</span><span class="skill-pct">75%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-header"><span class="skill-name">Microsoft Office</span><span class="skill-pct">90%</span></div>
-        <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
-      </div>
+    <div><div class="scat" data-i18n="sk2">Design &amp; Multim&eacute;dia</div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Adobe Illustrator</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Adobe Photoshop</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Figma (UI/UX)</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" style="width:82%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Premiere Pro</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" style="width:78%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Audacity</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div>
+      <div class="skill-item"><div class="skill-header"><span class="skill-name">Microsoft Office</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
     </div>
   </div>
-  <div class="tools-grid">
-    <div class="tool-pill">XAMPP / Apache</div>
-    <div class="tool-pill">Git</div>
-    <div class="tool-pill">PDO</div>
-    <div class="tool-pill">PhpSpreadsheet</div>
-    <div class="tool-pill">SHA-256 / bcrypt</div>
-    <div class="tool-pill">VBScript</div>
-    <div class="tool-pill">WebView2</div>
-    <div class="tool-pill">CSC Compiler</div>
-  </div>
+  <div class="tools-grid"><div class="tool-pill">XAMPP / Apache</div><div class="tool-pill">Git</div><div class="tool-pill">PDO</div><div class="tool-pill">PhpSpreadsheet</div><div class="tool-pill">SHA-256 / bcrypt</div><div class="tool-pill">VBScript</div><div class="tool-pill">WebView2</div><div class="tool-pill">CSC Compiler</div></div>
 </section>
-
-<!-- FORMATION -->
-<section id="formation" class="section-full">
-  <div class="section-inner">
-    <div class="section-num">03 &mdash; Parcours acad&eacute;mique</div>
-    <div class="section-title">Double <span>formation</span></div>
-    <div class="formation-grid">
-      <div class="formation-card">
-        <div class="formation-flag" style="background:#f0fdf4;border-color:#bbf7d0">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#006233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/>
-          </svg>
-        </div>
-        <div>
-          <div class="formation-country">Alg&eacute;rie</div>
-          <div class="formation-degree">BTS &mdash; D&eacute;veloppement Web &amp; Multim&eacute;dias</div>
-          <div class="formation-school">Brevet de Technicien Sup&eacute;rieur &middot; Formation nationale</div>
-        </div>
-      </div>
-      <div class="formation-card">
-        <div class="formation-flag" style="background:#eff6ff;border-color:#bfdbfe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px">
-            <polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/>
-          </svg>
-        </div>
-        <div>
-          <div class="formation-country" style="color:var(--indigo)">Canada</div>
-          <div class="formation-degree">AEC &mdash; D&eacute;veloppement Web</div>
-          <div class="formation-school">Attestation d'&Eacute;tudes Coll&eacute;giales &middot; C&eacute;gep de Sherbrooke</div>
-        </div>
-      </div>
-    </div>
-    <div class="section-num" style="margin-bottom:16px">Engagement associatif</div>
-    <div class="maira-card">
-      <div class="maira-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 11C10 9 7 7 7 5c0-2 2-3 4-2 .5.3 1 1 1 2"/>
-          <path d="M12 11c2-2 5-4 5-6 0-2-2-3-4-2-.5.3-1 1-1 2"/>
-          <line x1="10.5" y1="12" x2="8" y2="21"/>
-          <line x1="13.5" y1="12" x2="16" y2="21"/>
-          <path d="M8 21q4-3.5 8 0"/>
-        </svg>
-      </div>
-      <div>
-        <div class="maira-title">Fondation MAIRA &mdash; Alg&eacute;rie</div>
-        <div class="maira-sub">Animateur &amp; Repr&eacute;sentant officiel</div>
-        <div class="maira-desc">Je suis l'animateur et le repr&eacute;sentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Alg&eacute;rie. Engag&eacute; dans des projets &agrave; impact social et sanitaire, je contribue &agrave; la sensibilisation, &agrave; l'accompagnement des patients et &agrave; la visibilit&eacute; de ces maladies m&eacute;connues.</div>
-      </div>
-    </div>
+<section id="formation" class="section-full"><div class="si">
+  <div class="section-num" data-i18n="s03n">03 &mdash; Parcours acad&eacute;mique</div>
+  <div class="section-title" data-i18n="s03t">Double <span>formation</span></div>
+  <div class="formation-grid">
+    <div class="formation-card"><div class="formation-flag" style="background:#f0fdf4;border-color:#bbf7d0"><svg viewBox="0 0 24 24" fill="none" stroke="#006233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/></svg></div><div><div class="formation-country" data-i18n="ec1">Alg&eacute;rie</div><div class="formation-degree" data-i18n="ed1">BTS &mdash; D&eacute;veloppement Web &amp; Multim&eacute;dias</div><div class="formation-school" data-i18n="es1">Brevet de Technicien Sup&eacute;rieur &middot; Formation nationale</div></div></div>
+    <div class="formation-card"><div class="formation-flag" style="background:#eff6ff;border-color:#bfdbfe"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/></svg></div><div><div class="formation-country" style="color:var(--indigo)" data-i18n="ec2">Canada</div><div class="formation-degree" data-i18n="ed2">AEC &mdash; D&eacute;veloppement Web</div><div class="formation-school" data-i18n="es2">Attestation d'&Eacute;tudes Coll&eacute;giales &middot; C&eacute;gep de Sherbrooke</div></div></div>
   </div>
-</section>
-
-<!-- A PROPOS -->
+  <div class="section-num" style="margin-bottom:16px" data-i18n="eng">Engagement associatif</div>
+  <div class="maira-card"><div class="maira-icon"><svg viewBox="0 0 24 24"><path d="M12 11C10 9 7 7 7 5c0-2 2-3 4-2 .5.3 1 1 1 2"/><path d="M12 11c2-2 5-4 5-6 0-2-2-3-4-2-.5.3-1 1-1 2"/><line x1="10.5" y1="12" x2="8" y2="21"/><line x1="13.5" y1="12" x2="16" y2="21"/><path d="M8 21q4-3.5 8 0"/></svg></div><div><div class="maira-title">Fondation MAIRA &mdash; Alg&eacute;rie</div><div class="maira-sub" data-i18n="msub">Animateur &amp; Repr&eacute;sentant officiel</div><div class="maira-desc" data-i18n="mdesc">Je suis l'animateur et le repr&eacute;sentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Alg&eacute;rie. Engag&eacute; dans des projets &agrave; impact social et sanitaire, je contribue &agrave; la sensibilisation, &agrave; l'accompagnement des patients et &agrave; la visibilit&eacute; de ces maladies m&eacute;connues.</div></div></div>
+</div></section>
 <section id="apropos" class="section">
-  <div class="section-num">04 &mdash; &Agrave; propos</div>
-  <div class="section-title">Mon <span>profil</span></div>
+  <div class="section-num" data-i18n="s04n">04 &mdash; &Agrave; propos</div>
+  <div class="section-title" data-i18n="s04t">Mon <span>profil</span></div>
   <div class="about-grid">
     <div class="about-text">
-      <p>D&eacute;veloppeur WEB Full Stack et Graphic Designer avec une <strong>double formation alg&eacute;rienne et canadienne</strong>, je combine des comp&eacute;tences techniques solides en d&eacute;veloppement web avec une sensibilit&eacute; cr&eacute;ative en design graphique et multim&eacute;dia.</p>
-      <p>Je con&ccedil;ois des <strong>applications m&eacute;tier sur mesure</strong> pour les entreprises alg&eacute;riennes &mdash; PME, usines, salles de sport, compagnies d'assurances, stations-service. Chaque projet va de la maquette Figma &agrave; la mise en production sur site.</p>
-      <p>Mes solutions sont l&eacute;g&egrave;res, d&eacute;ployables en local et pens&eacute;es pour &ecirc;tre <strong>simples &agrave; utiliser</strong> au quotidien. J'associe un back-end PHP/MySQL &agrave; un launcher Windows en C# pour une exp&eacute;rience desktop compl&egrave;te.</p>
-      <p>Au-del&agrave; du code, je m'engage dans <strong>des projets &agrave; impact social et sanitaire</strong> &agrave; travers la fondation MAIRA.</p>
+      <p data-i18n="ap1">D&eacute;veloppeur WEB Full Stack et Graphic Designer avec une <strong>double formation alg&eacute;rienne et canadienne</strong>, je combine des comp&eacute;tences techniques solides en d&eacute;veloppement web avec une sensibilit&eacute; cr&eacute;ative en design graphique et multim&eacute;dia.</p>
+      <p data-i18n="ap2">Je con&ccedil;ois des <strong>applications m&eacute;tier sur mesure</strong> pour les entreprises alg&eacute;riennes &mdash; PME, usines, salles de sport, compagnies d'assurances, stations-service. Chaque projet va de la maquette Figma &agrave; la mise en production sur site.</p>
+      <p data-i18n="ap3">Mes solutions sont l&eacute;g&egrave;res, d&eacute;ployables en local et pens&eacute;es pour &ecirc;tre <strong>simples &agrave; utiliser</strong> au quotidien. J'associe un back-end PHP/MySQL &agrave; un launcher Windows en C# pour une exp&eacute;rience desktop compl&egrave;te.</p>
+      <p data-i18n="ap4">Au-del&agrave; du code, je m'engage dans <strong>des projets &agrave; impact social et sanitaire</strong> &agrave; travers la fondation MAIRA.</p>
     </div>
     <div class="contact-card">
-      <div class="contact-card-title">Contact</div>
-      <div class="contact-item">
-        <div class="contact-item-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        </div>
-        <div>
-          <div class="contact-item-label">Email</div>
-          <div class="contact-item-value"><a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a></div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.98-1.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <div>
-          <div class="contact-item-label">T&eacute;l&eacute;phone</div>
-          <div class="contact-item-value"><a href="tel:+213793620490">+213 793 620 490</a></div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">
-          <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="contact-item-label">Localisation</div>
-          <div class="contact-item-value">Alg&eacute;rie</div>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-item-icon">
-          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <div>
-          <div class="contact-item-label">Dipl&ocirc;mes</div>
-          <div class="contact-item-value">BTS Alg&eacute;rie &middot; AEC Sherbrooke (CA)</div>
-        </div>
-      </div>
+      <div class="contact-card-title" data-i18n="ctt">Contact</div>
+      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><div class="contact-item-label" data-i18n="ctl1">Email</div><div class="contact-item-value"><a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a></div></div></div>
+      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.98-1.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="contact-item-label" data-i18n="ctl2">T&eacute;l&eacute;phone</div><div class="contact-item-value"><a href="tel:+213793620490">+213 793 620 490</a></div></div></div>
+      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-item-label" data-i18n="ctl3">Localisation</div><div class="contact-item-value" data-i18n="ctv3">Alg&eacute;rie</div></div></div>
+      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><div class="contact-item-label" data-i18n="ctl4">Dipl&ocirc;mes</div><div class="contact-item-value" data-i18n="ctv4">BTS Alg&eacute;rie &middot; AEC Sherbrooke (CA)</div></div></div>
     </div>
   </div>
 </section>
-
 <footer>
   <div class="footer-name">Rafik MOKDAD</div>
-  <div class="footer-sub">D&eacute;veloppeur WEB Full Stack &amp; Graphic Designer &middot; Alg&eacute;rie</div>
-  <div class="footer-links">
-    <a href="#projets">Projets</a>
-    <a href="#competences">Comp&eacute;tences</a>
-    <a href="#formation">Formation</a>
-    <a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a>
-    <a href="tel:+213793620490">+213 793 620 490</a>
-  </div>
+  <div class="footer-sub" data-i18n="ftsub">D&eacute;veloppeur WEB Full Stack &amp; Graphic Designer &middot; Alg&eacute;rie</div>
+  <div class="footer-links"><a href="#projets" data-i18n="ftl1">Projets</a><a href="#competences" data-i18n="ftl2">Comp&eacute;tences</a><a href="#formation" data-i18n="ftl3">Formation</a><a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a><a href="tel:+213793620490">+213 793 620 490</a></div>
 </footer>
+<script>
+var dark=document.documentElement.classList.contains('dark');
+function syncD(){document.getElementById('ico-moon').style.display=dark?'none':'';document.getElementById('ico-sun').style.display=dark?'':'none';}
+syncD();
+document.getElementById('btn-dark').addEventListener('click',function(){dark=!dark;document.documentElement.classList.toggle('dark',dark);localStorage.setItem('dark',dark?'1':'0');syncD();});
 
+var lang=localStorage.getItem('lang')||'fr';
+var T={
+fr:{
+'np':'Projets','ns':'Compétences','ne':'Formation','na':'À propos',
+'hbadge':'Disponible · Algérie',
+'hrole':'<strong>Développeur WEB Full Stack</strong> &amp; Graphic Designer',
+'hdesc':'Double formation algérienne et canadienne. Je conçois et développe des applications web et logiciels métier sur mesure, du design à la mise en production.',
+'hb1':'Voir mes projets','hb2':'À propos',
+'hs1':'Développement web','hs2':'Design graphique','hs3':'Apps desktop (C#)','hs4':'Conception BDD',
+'s01n':'01 — Réalisations','s01t':'Projets <span>développés</span>',
+'p1t':'Gestion métier','p1d':'Application web de gestion de location de véhicules. Suivi des contrats, clients, chauffeurs et flotte avec calcul automatique et exports Excel.','p1f1':'Gération véhicules, clients, contrats, chauffeurs','p1f2':'Calcul automatique : tarif × jours + km + chauffeur','p1f3':'Tableau de bord KPIs, export Excel, archivage','p1f4':'Authentification sécurisée sans base de données',
+'p2t':'App Desktop + Web','p2d':'Système de gestion RH pour une station-service avec launcher Windows sécurisé qui démarre Apache, MySQL et ouvre l\'app en mode isolé.','p2f1':'Launcher C# avec code secret + premier lancement','p2f2':'Démarrage/arrêt automatique Apache et MySQL','p2f3':'Pointage journalier, historique, export Excel',
+'p3t':'App Desktop + Web','p3d':'Application de gestion RH pour une usine de plastique. Code PIN 4 chiffres, salaires, fiches d\'activités et planning hebdomadaire.','p3f1':'Launcher PIN 4 chiffres sécurisé SHA-256','p3f2':'Employés, fiches de paie, historique, planning','p3f3':'Arrêt propre des services, réinitialisation .vbs',
+'p4t':'App Web MVC','p4d':'Application MVC complète pour salle de sport. Architecture maison (Router, Controller, Model) avec membres, abonnements et boutique.','p4f1':'Architecture MVC maison : Router, Controller, Model','p4f2':'Membres, abonnements, accès carnet / séance','p4f3':'Boutique, coachs, statistiques avancées',
+'p5t':'ERP / RH','p5d':'ERP RH interne pour une compagnie d\'assurances nationale. Personnel sur 45 agences à travers l\'Algérie, rôles et validation des accès.','p5f1':'Multi-agences : 45 villes algériennes','p5f2':'Rôles admin / employé / stagiaire','p5f3':'Recrutement, mouvements, documents, photos',
+'p6t':'Dashboard','p6d':'Dashboard de suivi de planning et d\'activité pour l\'entreprise Bractive. API PHP, visualisation des indicateurs, export de données.','p6f1':'Interface dashboard temps réel','p6f2':'API PHP, visualisation des KPIs','p6f3':'Export des données, design moderne',
+'s02n':'02 — Stack technique','s02t':'Compétences <span>&amp; outils</span>',
+'sk1':'Développement web','sk2':'Design &amp; Multimédia','skdb':'Conception base de données',
+'s03n':'03 — Parcours académique','s03t':'Double <span>formation</span>',
+'ec1':'Algérie','ed1':'BTS — Développement Web &amp; Multimédias','es1':'Brevet de Technicien Supérieur · Formation nationale',
+'ec2':'Canada','ed2':'AEC — Développement Web','es2':'Attestation d\'&Eacute;tudes Collégiales · Cégep de Sherbrooke',
+'eng':'Engagement associatif',
+'msub':'Animateur &amp; Représentant officiel',
+'mdesc':'Je suis l\'animateur et le représentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Algérie. Engagé dans des projets à impact social et sanitaire, je contribue à la sensibilisation, à l\'accompagnement des patients et à la visibilité de ces maladies méconnues.',
+'s04n':'04 — À propos','s04t':'Mon <span>profil</span>',
+'ap1':'Développeur WEB Full Stack et Graphic Designer avec une <strong>double formation algérienne et canadienne</strong>, je combine des compétences techniques solides en développement web avec une sensibilité créative en design graphique et multimédia.',
+'ap2':'Je conçois des <strong>applications métier sur mesure</strong> pour les entreprises algériennes — PME, usines, salles de sport, compagnies d\'assurances, stations-service. Chaque projet va de la maquette Figma à la mise en production sur site.',
+'ap3':'Mes solutions sont légères, déployables en local et pensées pour être <strong>simples à utiliser</strong> au quotidien. J\'associe un back-end PHP/MySQL à un launcher Windows en C# pour une expérience desktop complète.',
+'ap4':'Au-delà du code, je m\'engage dans <strong>des projets à impact social et sanitaire</strong> à travers la fondation MAIRA.',
+'ctt':'Contact','ctl1':'Email','ctl2':'Téléphone','ctl3':'Localisation','ctv3':'Algérie','ctl4':'Diplômes','ctv4':'BTS Algérie · AEC Sherbrooke (CA)',
+'ftsub':'Développeur WEB Full Stack &amp; Graphic Designer · Algérie','ftl1':'Projets','ftl2':'Compétences','ftl3':'Formation'
+},
+en:{
+'np':'Projects','ns':'Skills','ne':'Education','na':'About',
+'hbadge':'Available · Algeria',
+'hrole':'<strong>Full Stack WEB Developer</strong> &amp; Graphic Designer',
+'hdesc':'Dual Algerian and Canadian education. I design and develop custom web applications and business software, from wireframes to production deployment.',
+'hb1':'View my projects','hb2':'About me',
+'hs1':'Web development','hs2':'Graphic design','hs3':'Desktop apps (C#)','hs4':'Database design',
+'s01n':'01 — Work','s01t':'Developed <span>projects</span>',
+'p1t':'Business management','p1d':'Vehicle rental management web application. Track contracts, clients, drivers and fleet with automatic calculations and Excel exports.','p1f1':'Vehicles, clients, contracts, drivers management','p1f2':'Auto calculation: rate × days + km + driver','p1f3':'KPI dashboard, Excel export, archiving','p1f4':'Secure authentication without external database',
+'p2t':'Desktop + Web app','p2d':'HR management system for a gas station with a secure Windows launcher that starts Apache, MySQL and opens the app in isolated mode.','p2f1':'C# launcher with secret code + first launch setup','p2f2':'Automatic start/stop of Apache and MySQL','p2f3':'Daily attendance tracking, history, Excel export',
+'p3t':'Desktop + Web app','p3d':'HR management app for a plastics factory. 4-digit PIN code, salaries, activity sheets and weekly scheduling.','p3f1':'SHA-256 secured 4-digit PIN launcher','p3f2':'Employees, payslips, history, scheduling','p3f3':'Clean service shutdown, .vbs reset script',
+'p4t':'MVC Web app','p4d':'Complete MVC application for a gym. Custom architecture (Router, Controller, Model) with members, subscriptions and shop.','p4f1':'Custom MVC: Router, Controller, Model','p4f2':'Members, subscriptions, session / book access','p4f3':'Shop, coaches, advanced statistics',
+'p5t':'ERP / HR','p5d':'Internal HR ERP for a national insurance company. Staff across 45 branches throughout Algeria, roles and access validation.','p5f1':'Multi-branch: 45 Algerian cities','p5f2':'Admin / employee / intern roles','p5f3':'Recruitment, transfers, documents, photos',
+'p6t':'Dashboard','p6d':'Planning and activity tracking dashboard for Bractive. PHP API, KPI visualization, data export.','p6f1':'Real-time dashboard interface','p6f2':'PHP API, KPI visualization','p6f3':'Data export, modern design',
+'s02n':'02 — Tech stack','s02t':'Skills <span>&amp; tools</span>',
+'sk1':'Web development','sk2':'Design &amp; Multimedia','skdb':'Database design',
+'s03n':'03 — Academic background','s03t':'Dual <span>education</span>',
+'ec1':'Algeria','ed1':'BTS — Web &amp; Multimedia Development','es1':'Higher Technician Certificate · National program',
+'ec2':'Canada','ed2':'AEC — Web Development','es2':'College Studies Certificate · Cégep de Sherbrooke',
+'eng':'Community engagement',
+'msub':'Coordinator &amp; Official Representative',
+'mdesc':'I am the coordinator and representative of the <strong>MAIRA</strong> Foundation for people with auto-immune, invisible and rare diseases in Algeria. Engaged in projects with social and health impact, I contribute to awareness, patient support, and visibility of these underrecognized diseases.',
+'s04n':'04 — About','s04t':'My <span>profile</span>',
+'ap1':'Full Stack WEB Developer and Graphic Designer with <strong>dual Algerian and Canadian education</strong>, I combine solid technical skills in web development with creative expertise in graphic design and multimedia.',
+'ap2':'I build <strong>custom business applications</strong> for Algerian companies — SMEs, factories, gyms, insurance companies, gas stations. Each project goes from Figma mockup to on-site production deployment.',
+'ap3':'My solutions are lightweight, locally deployable and designed to be <strong>simple to use</strong> daily. I pair a PHP/MySQL back-end with a C# Windows launcher for a complete desktop experience.',
+'ap4':'Beyond code, I am engaged in <strong>social and health impact projects</strong> through the MAIRA Foundation.',
+'ctt':'Contact','ctl1':'Email','ctl2':'Phone','ctl3':'Location','ctv3':'Algeria','ctl4':'Degrees','ctv4':'BTS Algeria · AEC Sherbrooke (CA)',
+'ftsub':'Full Stack WEB Developer &amp; Graphic Designer · Algeria','ftl1':'Projects','ftl2':'Skills','ftl3':'Education'
+}};
+
+function applyLang(l){
+  lang=l;localStorage.setItem('lang',l);
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k=el.getAttribute('data-i18n');
+    if(T[l][k]!==undefined)el.innerHTML=T[l][k];
+  });
+  document.getElementById('btn-lang').textContent=l==='fr'?'EN':'FR';
+  document.documentElement.setAttribute('lang',l);
+}
+document.getElementById('btn-lang').addEventListener('click',function(){applyLang(lang==='fr'?'en':'fr');});
+applyLang(lang);
+</script>
 </body>
 </html>
-
