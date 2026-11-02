@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rafik MOKDAD — Portfolio</title>
+<meta name="description" content="Portfolio de Rafik MOKDAD, développeur web full stack et chef de projet logiciel à Alger : HydroGest, Imorex, Baya Immobilier, AutoLoc, GymPro, GTP, TimeMark.">
+
 <script>if(localStorage.getItem('dark')==='1')document.documentElement.classList.add('dark')</script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -18,6 +20,9 @@ html.dark .btn-outline{border-color:#30363d;color:var(--text)}
 html.dark .skill-bar,html.dark .hcs-bar{background:#1c2128}
 html.dark .contact-item-icon{background:#1c2128}
 html.dark .section-full{background:var(--bg2);border-color:var(--border)}
+html.dark .tl-item{background:#161b22}
+html.dark .section-full .tool-pill{background:var(--bg)}
+html.dark .card-shot img{filter:brightness(.9)}
 html{scroll-behavior:smooth}
 body{font-family:var(--f);background:var(--bg);color:var(--text);font-size:15px;line-height:1.7;transition:background .3s,color .3s}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg2)}::-webkit-scrollbar-thumb{background:var(--blue);border-radius:99px}
@@ -131,7 +136,24 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
 .footer-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
 .footer-links a{color:var(--text2);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
 .footer-links a:hover{color:var(--blue)}
-@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.hero{flex-direction:column;padding:100px 24px 60px;gap:40px}.hero-visual{display:none}.section{padding:60px 24px}.si{padding:0 24px}.skills-grid,.about-grid,.formation-grid{grid-template-columns:1fr}}
+.card-shot{display:block;margin:-28px -28px 20px;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg3)}
+.card-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .4s}
+.project-card:hover .card-shot img{transform:scale(1.03)}
+.timeline{position:relative;display:flex;flex-direction:column;gap:24px;padding-left:32px}
+.timeline::before{content:'';position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--blue),var(--border))}
+.tl-item{position:relative;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px;transition:box-shadow .25s,border-color .25s,background .3s}
+.tl-item::before{content:'';position:absolute;left:-32px;top:32px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--blue)}
+.tl-item:hover{box-shadow:var(--shadow);border-color:rgba(37,99,235,.2)}
+.tl-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;margin-bottom:2px}
+.tl-role{font-size:17px;font-weight:700;color:var(--text)}
+.tl-date{font-size:12px;font-weight:600;color:var(--blue);background:var(--bg3);padding:4px 12px;border-radius:99px;white-space:nowrap}
+.tl-org{font-size:13px;font-weight:600;color:var(--blue);margin-bottom:14px}
+.tl-sub{font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px}
+.tl-list{display:flex;flex-direction:column;gap:6px}
+.skills-extra{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}
+.skills-extra .tools-grid{margin-top:0}
+.tool-pill b{font-weight:600;color:var(--blue);margin-left:8px}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}.hero{flex-direction:column;padding:100px 24px 60px;gap:40px}.hero-visual{display:none}.section{padding:60px 24px}.si{padding:0 24px}.skills-grid,.about-grid,.formation-grid,.skills-extra{grid-template-columns:1fr}.timeline{padding-left:24px}.tl-item{padding:22px}.tl-item::before{left:-24px}}
 </style>
 </head>
 <body>
@@ -139,6 +161,7 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
   <a class="nav-logo" href="#">Rafik<span>.</span></a>
   <div class="nav-links">
     <a href="#projets" data-i18n="np">Projets</a>
+    <a href="#experience" data-i18n="nx">Expérience</a>
     <a href="#competences" data-i18n="ns">Comp&eacute;tences</a>
     <a href="#formation" data-i18n="ne">Formation</a>
     <a href="#apropos" data-i18n="na">&Agrave; propos</a>
@@ -155,8 +178,8 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
   <div class="hero-content">
     <div class="hero-tag" data-i18n="hbadge">Disponible &middot; Alg&eacute;rie</div>
     <h1 class="hero-name">Rafik<br><span class="last">MOKDAD</span></h1>
-    <div class="hero-role" data-i18n="hrole"><strong>D&eacute;veloppeur WEB Full Stack</strong> &amp; Graphic Designer</div>
-    <p class="hero-desc" data-i18n="hdesc">Double formation alg&eacute;rienne et canadienne. Je con&ccedil;ois et d&eacute;veloppe des applications web et logiciels m&eacute;tier sur mesure, du design &agrave; la mise en production.</p>
+    <div class="hero-role" data-i18n="hrole"><strong>Développeur WEB Full Stack</strong> &amp; Chef de projet logiciel</div>
+    <p class="hero-desc" data-i18n="hdesc">Développeur web full stack et graphic designer, major de promotion, formé en Algérie et au Canada. Je dirige une équipe de développeurs et de designers qui livre des logiciels de gestion sur mesure. Double vainqueur de WorldSkills Algeria, en Bachelor Cybersécurité.</p>
     <div class="hero-btns">
       <a href="#projets" class="btn btn-primary" data-i18n="hb1">Voir mes projets</a>
       <a href="#apropos" class="btn btn-outline" data-i18n="hb2">&Agrave; propos</a>
@@ -169,7 +192,7 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
   <div class="hero-visual"><div class="hero-card">
     <div class="hero-card-avatar">RM</div>
     <div class="hero-card-name">Rafik MOKDAD</div>
-    <div class="hero-card-role">Full Stack &amp; Graphic Designer</div>
+    <div class="hero-card-role" data-i18n="hcrole">Full Stack &amp; Chef de projet logiciel</div>
     <div class="hero-card-stats">
       <div><div class="hcs-item"><span class="hcs-label" data-i18n="hs1">D&eacute;veloppement web</span><span class="hcs-val">92%</span></div><div class="hcs-bar"><div class="hcs-fill" style="width:92%"></div></div></div>
       <div><div class="hcs-item"><span class="hcs-label" data-i18n="hs2">Design graphique</span><span class="hcs-val">88%</span></div><div class="hcs-bar"><div class="hcs-fill" style="width:88%"></div></div></div>
@@ -181,6 +204,9 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
   <div class="section-num" data-i18n="s01n">01 &mdash; R&eacute;alisations</div>
   <div class="section-title" data-i18n="s01t">Projets <span>d&eacute;velopp&eacute;s</span></div>
   <div class="projects-grid">
+    <div class="project-card"><div class="card-shot"><img src="img/hydrogest.webp" width="1200" height="676" alt="Capture de HydroGest : synthèse d'un chantier avec avancement, coûts et marge" data-i18n-alt="p7a" loading="lazy" decoding="async"></div><div class="card-header"><div class="card-type" data-i18n="p7t">ERP · Application Windows</div></div><div class="card-name" data-i18n="p7n">HydroGest — Gestion d'entreprise</div><div class="card-desc" data-i18n="p7d">ERP Windows pour une entreprise de travaux hydrauliques (BTP) : personnel et paie, commercial, comptabilité SCF, chantiers et parc d'engins. Fonctionne hors ligne, avec activation par licence et mises à jour en ligne signées.</div><div class="card-tags"><span class="tag tag-cs">C# / .NET 10</span><span class="tag tag-boot">Blazor · MudBlazor</span><span class="tag tag-cs">WPF · WebView2</span><span class="tag tag-mysql">SQLite · EF Core</span><span class="tag tag-gray">QuestPDF · ClosedXML</span><span class="tag tag-gray">Inno Setup</span></div><div class="card-features"><div class="card-feature" data-i18n="p7f1">Paie à périodes libres (semaine, quinzaine, mois) avec protection contre le double paiement</div><div class="card-feature" data-i18n="p7f2">Ventes, achats, comptabilité SCF, TVA et trésorerie, avec états PDF et Excel</div><div class="card-feature" data-i18n="p7f3">Chantiers : avancement, coûts, marge, équipe et engins, entretien du parc</div><div class="card-feature" data-i18n="p7f4">Activation par clé signée, sauvegardes, mises à jour en ligne, plus de 240 tests automatisés</div></div></div>
+    <div class="project-card"><div class="card-shot"><img src="img/imorex.webp" width="1200" height="668" alt="Capture d'Imorex : tableau de bord du patrimoine avec alertes, valeur et derniers produits" data-i18n-alt="p8a" loading="lazy" decoding="async"></div><div class="card-header"><div class="card-type" data-i18n="p8t">Inventaire · Application Windows</div></div><div class="card-name" data-i18n="p8n">Imorex — Inventaire du patrimoine</div><div class="card-desc" data-i18n="p8d">Application Windows d'inventaire du patrimoine immobilier : sites, emplacements, zones et produits, inventaires au scanner de codes-barres, PV d'incidents, étiquettes et rapports. Interface en français, anglais et arabe (de droite à gauche).</div><div class="card-tags"><span class="tag tag-cs">C# / WPF</span><span class="tag tag-cs">.NET 10 LTS</span><span class="tag tag-mysql">SQLite</span><span class="tag tag-gray" data-i18n="p8g">Scanner codes-barres</span><span class="tag tag-gray">Inno Setup</span><span class="tag tag-gray">Obfuscar</span></div><div class="card-features"><div class="card-feature" data-i18n="p8f1">Sessions d'inventaire au scanner de codes-barres, étiquettes imprimables, import des relevés</div><div class="card-feature" data-i18n="p8f2">Interface trilingue FR / EN / AR, avec lecture de droite à gauche</div><div class="card-feature" data-i18n="p8f3">Activation par code signé (ECDSA), code obfusqué, mises à jour en ligne signées</div><div class="card-feature" data-i18n="p8f4">Livré avec installateur, guides FR / EN, vidéo de formation et plus de 280 tests</div></div></div>
+    <div class="project-card"><div class="card-shot"><img src="img/baya.webp" width="1200" height="750" alt="Capture du site de Baya Immobilier : page d'accueil avec recherche de biens" data-i18n-alt="p9a" loading="lazy" decoding="async"></div><div class="card-header"><div class="card-type" data-i18n="p9t">Plateforme web + mobile</div></div><div class="card-name">Baya Immobilier</div><div class="card-desc" data-i18n="p9d">Site web et application Android pour une agence immobilière d'Alger : annonces avec recherche et carte interactive, comptes clients, demandes de contact, réservation de visites et espace d'administration complet. Interface en français, arabe (RTL) et anglais.</div><div class="card-tags"><span class="tag tag-js">Next.js 16</span><span class="tag tag-cs">React Native · Expo</span><span class="tag tag-css">TypeScript</span><span class="tag tag-mysql">Supabase · PostgreSQL</span><span class="tag tag-gray">Leaflet</span></div><div class="card-features"><div class="card-feature" data-i18n="p9f1">Recherche à filtres, carte interactive, favoris et recherches enregistrées</div><div class="card-feature" data-i18n="p9f2">Back-office : annonces, clients, dossiers, documents, contrats, équipe et journal d'activité</div><div class="card-feature" data-i18n="p9f3">Notifications par e-mail et push, interface FR / AR (RTL) / EN</div><div class="card-feature" data-i18n="p9f4">Sécurité par lignes (RLS), tests SQL et e-mails automatisés, pack de livraison client</div></div></div>
     <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p1t">Gestion m&eacute;tier</div></div><div class="card-name">AutoLoc</div><div class="card-desc" data-i18n="p1d">Application web de gestion de location de v&eacute;hicules. Suivi des contrats, clients, chauffeurs et flotte avec calcul automatique et exports Excel.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-css">PDO</span><span class="tag tag-gray">CSS Custom</span><span class="tag tag-js">PhpSpreadsheet</span></div><div class="card-features"><div class="card-feature" data-i18n="p1f1">Gestion des v&eacute;hicules, clients, contrats, chauffeurs</div><div class="card-feature" data-i18n="p1f2">Calcul automatique : tarif &times; jours + km + chauffeur</div><div class="card-feature" data-i18n="p1f3">Tableau de bord KPIs, export Excel, archivage</div><div class="card-feature" data-i18n="p1f4">Authentification s&eacute;curis&eacute;e sans base de donn&eacute;es</div></div></div>
     <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p2t">App Desktop + Web</div></div><div class="card-name">TimeMark</div><div class="card-desc" data-i18n="p2d">Syst&egrave;me de gestion RH pour une station-service avec launcher Windows s&eacute;curis&eacute; qui d&eacute;marre Apache, MySQL et ouvre l'app en mode isol&eacute;.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-cs">C# WinForms</span><span class="tag tag-cs">WebView2</span></div><div class="card-features"><div class="card-feature" data-i18n="p2f1">Launcher C# avec code secret + premier lancement</div><div class="card-feature" data-i18n="p2f2">D&eacute;marrage/arr&ecirc;t automatique Apache et MySQL</div><div class="card-feature" data-i18n="p2f3">Pointage journalier, historique, export Excel</div></div></div>
     <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p3t">App Desktop + Web</div></div><div class="card-name">GTP (Gestion de Temps et de Paie)</div><div class="card-desc" data-i18n="p3d">Application de gestion RH pour une usine de plastique. Code PIN 4 chiffres, salaires, fiches d'activit&eacute;s et planning hebdomadaire.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-cs">C# WinForms</span><span class="tag tag-cs">WebView2</span></div><div class="card-features"><div class="card-feature" data-i18n="p3f1">Launcher PIN 4 chiffres s&eacute;curis&eacute; SHA-256</div><div class="card-feature" data-i18n="p3f2">Employ&eacute;s, fiches de paie, historique, planning</div><div class="card-feature" data-i18n="p3f3">Arr&ecirc;t propre des services, r&eacute;initialisation .vbs</div></div></div>
@@ -189,8 +215,39 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
     <div class="project-card"><div class="card-header"><div class="card-type" data-i18n="p6t">Dashboard</div></div><div class="card-name">Planning Dashboard</div><div class="card-desc" data-i18n="p6d">Dashboard de suivi de planning et d'activit&eacute; pour les entreprises. API PHP, visualisation des indicateurs, export de donn&eacute;es.</div><div class="card-tags"><span class="tag tag-php">PHP 8</span><span class="tag tag-mysql">MySQL</span><span class="tag tag-js">JS</span><span class="tag tag-gray">API REST</span></div><div class="card-features"><div class="card-feature" data-i18n="p6f1">Interface dashboard temps r&eacute;el</div><div class="card-feature" data-i18n="p6f2">API PHP, visualisation des KPIs</div><div class="card-feature" data-i18n="p6f3">Export des donn&eacute;es, design moderne</div></div></div>
   </div>
 </div></section>
-<section id="competences" class="section">
-  <div class="section-num" data-i18n="s02n">02 &mdash; Stack technique</div>
+<section id="experience" class="section">
+  <div class="section-num" data-i18n="sxn">02 — Parcours professionnel</div>
+  <div class="section-title" data-i18n="sxt">Expérience <span>professionnelle</span></div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-head"><div class="tl-role">Software &amp; Web Manager</div><div class="tl-date" data-i18n="x1d">Mai 2026 — aujourd'hui</div></div>
+      <div class="tl-org">SARL Bractive</div>
+      <div class="tl-sub" data-i18n="x1s">Développement de plusieurs logiciels de gestion</div>
+      <div class="tl-list">
+        <div class="card-feature" data-i18n="x1f1">AutoLoc (location de voitures), GymPro (salle de sport), GTP (temps et paie), TimeMark (gestion des rondes), Imorex (inventaire) et HydroGest (ERP)</div>
+        <div class="card-feature" data-i18n="x1f2">Programmation des pointeuses</div>
+        <div class="card-feature" data-i18n="x1f3">Gestion et coordination d'une équipe de développeurs et de designers</div>
+        <div class="card-feature" data-i18n="x1f4">Planification des sprints et suivi de l'avancement des projets</div>
+        <div class="card-feature" data-i18n="x1f5">Supervision de la qualité du code et des bonnes pratiques de développement</div>
+        <div class="card-feature" data-i18n="x1f6">Relation client et recueil des besoins fonctionnels</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-head"><div class="tl-role" data-i18n="x2r">Développeur web — stage</div><div class="tl-date" data-i18n="x2d">Nov. 2025 — avr. 2026</div></div>
+      <div class="tl-org">CASH Assurances</div>
+      <div class="tl-sub" data-i18n="x2s">Développement d'un site web de gestion des ressources humaines</div>
+      <div class="tl-list">
+        <div class="card-feature" data-i18n="x2f1">Analyse des besoins et conception de l'application</div>
+        <div class="card-feature" data-i18n="x2f2">Système complet de gestion RH : employés, stagiaires, centralisation des documents</div>
+        <div class="card-feature" data-i18n="x2f3">Intégration front-end et back-end, interface responsive et intuitive</div>
+        <div class="card-feature" data-i18n="x2f4">Tests, optimisation et correction des anomalies</div>
+        <div class="card-feature" data-i18n="x2f5">Participation à la gestion de projet et respect des délais</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="competences" class="section-full"><div class="si">
+  <div class="section-num" data-i18n="s02n">03 — Stack technique</div>
   <div class="section-title" data-i18n="s02t">Comp&eacute;tences <span>&amp; outils</span></div>
   <div class="skills-grid">
     <div><div class="scat" data-i18n="sk1">D&eacute;veloppement web</div>
@@ -210,15 +267,20 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
       <div class="skill-item"><div class="skill-header"><span class="skill-name">Microsoft Office</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div>
     </div>
   </div>
-  <div class="tools-grid"><div class="tool-pill">XAMPP / Apache</div><div class="tool-pill">Git</div><div class="tool-pill">PDO</div><div class="tool-pill">PhpSpreadsheet</div><div class="tool-pill">SHA-256 / bcrypt</div><div class="tool-pill">VBScript</div><div class="tool-pill">WebView2</div><div class="tool-pill">CSC Compiler</div></div>
+  <div class="tools-grid"><div class="tool-pill">XAMPP / Apache</div><div class="tool-pill">Git / GitHub</div><div class="tool-pill">PDO</div><div class="tool-pill">PhpSpreadsheet</div><div class="tool-pill">SHA-256 / bcrypt</div><div class="tool-pill">VBScript</div><div class="tool-pill">WebView2</div><div class="tool-pill">CSC Compiler</div><div class="tool-pill">C# / .NET</div><div class="tool-pill">Blazor</div><div class="tool-pill">Java</div><div class="tool-pill">Angular</div><div class="tool-pill">Laravel</div><div class="tool-pill">SQLite</div><div class="tool-pill">Next.js</div><div class="tool-pill">React Native / Expo</div><div class="tool-pill">TypeScript</div><div class="tool-pill">Supabase / PostgreSQL</div><div class="tool-pill">AutoCAD</div><div class="tool-pill" data-i18n="skia">Orchestration d'IA</div></div>
+  <div class="skills-extra">
+    <div><div class="scat" data-i18n="skm">Management</div><div class="tools-grid"><div class="tool-pill" data-i18n="mg1">Coordination d'équipe</div><div class="tool-pill" data-i18n="mg2">Planification des sprints</div><div class="tool-pill" data-i18n="mg3">Recueil des besoins</div><div class="tool-pill" data-i18n="mg4">Relation client</div></div></div>
+    <div><div class="scat" data-i18n="skl">Langues</div><div class="tools-grid"><div class="tool-pill"><span data-i18n="lg1">Arabe</span><b data-i18n="lv1">Courant</b></div><div class="tool-pill"><span data-i18n="lg2">Français</span><b data-i18n="lv2">Courant</b></div><div class="tool-pill"><span data-i18n="lg3">Anglais</span><b data-i18n="lv3">Bon niveau</b></div></div></div>
+  </div>
+  </div>
 </section>
-<section id="formation" class="section-full"><div class="si">
-  <div class="section-num" data-i18n="s03n">03 &mdash; Parcours acad&eacute;mique</div>
+<section id="formation" class="section"><div class="si" style="padding:0">
+  <div class="section-num" data-i18n="s03n">04 — Parcours académique</div>
   <div class="section-title" data-i18n="s03t">Formations <span>&amp; dipl&ocirc;mes</span></div>
   <div class="formation-grid">
-    <div class="formation-card" style="grid-column:1/-1"><div class="formation-flag" style="background:#e8f0fe;border-color:#c7d7fb"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div><div class="formation-country" data-i18n="ec0">En cours &middot; Alg&eacute;rie &amp; France</div><div class="formation-degree" data-i18n="ed0">Bachelor &mdash; Cybers&eacute;curit&eacute;</div><div class="formation-school" data-i18n="es0">HIMI Alger &middot; En partenariat avec l'ESGI (France)</div></div></div>
-    <div class="formation-card"><div class="formation-flag" style="background:#f0fdf4;border-color:#bbf7d0"><svg viewBox="0 0 24 24" fill="none" stroke="#006233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/></svg></div><div><div class="formation-country" data-i18n="ec1">Alg&eacute;rie</div><div class="formation-degree" data-i18n="ed1">BTS &mdash; D&eacute;veloppement Web &amp; Multim&eacute;dias</div><div class="formation-school" data-i18n="es1">Brevet de Technicien Sup&eacute;rieur &middot; Formation nationale</div></div></div>
-    <div class="formation-card"><div class="formation-flag" style="background:#eff6ff;border-color:#bfdbfe"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/></svg></div><div><div class="formation-country" style="color:var(--indigo)" data-i18n="ec2">Canada</div><div class="formation-degree" data-i18n="ed2">AEC &mdash; D&eacute;veloppement Web</div><div class="formation-school" data-i18n="es2">Attestation d'&Eacute;tudes Coll&eacute;giales &middot; C&eacute;gep de Sherbrooke</div></div></div>
+    <div class="formation-card" style="grid-column:1/-1"><div class="formation-flag" style="background:#e8f0fe;border-color:#c7d7fb"><svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div><div><div class="formation-country" data-i18n="ec0">En cours &middot; Alg&eacute;rie &amp; France</div><div class="formation-degree" data-i18n="ed0">Bachelor &mdash; Cybers&eacute;curit&eacute;</div><div class="formation-school" data-i18n="es0">HIMI Alger · En partenariat avec l'ESGI (France) · 2026 – 2027</div></div></div>
+    <div class="formation-card"><div class="formation-flag" style="background:#f0fdf4;border-color:#bbf7d0"><svg viewBox="0 0 24 24" fill="none" stroke="#006233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/></svg></div><div><div class="formation-country" data-i18n="ec1">Alg&eacute;rie</div><div class="formation-degree" data-i18n="ed1">BTS — Développement Web</div><div class="formation-school" data-i18n="es1">Brevet de Technicien Supérieur · INSIM Bouira (Algérie) · 2024 – 2026</div></div></div>
+    <div class="formation-card"><div class="formation-flag" style="background:#eff6ff;border-color:#bfdbfe"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><line x1="2" y1="12" x2="2" y2="17"/></svg></div><div><div class="formation-country" style="color:var(--indigo)" data-i18n="ec2">Canada</div><div class="formation-degree" data-i18n="ed2">AEC — Développement Web &amp; Multimédia</div><div class="formation-school" data-i18n="es2">Attestation d'Études Collégiales · Cégep de Sherbrooke – INSIM Bouira (Algérie) · 2024 – 2026</div></div></div>
   </div>
   <div class="section-num" style="margin-bottom:16px" data-i18n="aw">Distinctions</div>
   <div class="formation-grid">
@@ -226,31 +288,32 @@ footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);ba
     <div class="formation-card"><div class="formation-flag" style="background:#fefce8;border-color:#fde68a"><svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:28px;height:28px"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg></div><div><div class="formation-country" style="color:#b45309" data-i18n="awl2">Premi&egrave;re place</div><div class="formation-degree" data-i18n="awt2">WorldSkills Algeria &mdash; R&eacute;gion Centre</div><div class="formation-school" data-i18n="aws2">Nord de l'Alg&eacute;rie &middot; Septembre 2026</div></div></div>
   </div>
   <div class="section-num" style="margin-bottom:16px" data-i18n="eng">Engagement associatif</div>
-  <div class="maira-card"><div class="maira-icon"><svg viewBox="0 0 24 24"><path d="M12 11C10 9 7 7 7 5c0-2 2-3 4-2 .5.3 1 1 1 2"/><path d="M12 11c2-2 5-4 5-6 0-2-2-3-4-2-.5.3-1 1-1 2"/><line x1="10.5" y1="12" x2="8" y2="21"/><line x1="13.5" y1="12" x2="16" y2="21"/><path d="M8 21q4-3.5 8 0"/></svg></div><div><div class="maira-title">Fondation MAIRA &mdash; Alg&eacute;rie</div><div class="maira-sub" data-i18n="msub">Animateur &amp; Repr&eacute;sentant officiel</div><div class="maira-desc" data-i18n="mdesc">Je suis l'animateur et le repr&eacute;sentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Alg&eacute;rie. Engag&eacute; dans des projets &agrave; impact social et sanitaire, je contribue &agrave; la sensibilisation, &agrave; l'accompagnement des patients et &agrave; la visibilit&eacute; de ces maladies m&eacute;connues.</div></div></div>
+  <div class="maira-card"><div class="maira-icon"><svg viewBox="0 0 24 24"><path d="M12 11C10 9 7 7 7 5c0-2 2-3 4-2 .5.3 1 1 1 2"/><path d="M12 11c2-2 5-4 5-6 0-2-2-3-4-2-.5.3-1 1-1 2"/><line x1="10.5" y1="12" x2="8" y2="21"/><line x1="13.5" y1="12" x2="16" y2="21"/><path d="M8 21q4-3.5 8 0"/></svg></div><div><div class="maira-title">Fondation MAIRA &mdash; Alg&eacute;rie</div><div class="maira-sub" data-i18n="msub">Animateur &amp; Représentant officiel · 2024 – aujourd'hui</div><div class="maira-desc" data-i18n="mdesc">Je suis l'animateur et le repr&eacute;sentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Alg&eacute;rie. Engag&eacute; dans des projets &agrave; impact social et sanitaire, je contribue &agrave; la sensibilisation, &agrave; l'accompagnement des patients et à la visibilité de ces maladies méconnues. Depuis 2024, je participe à des actions de sensibilisation et à des événements liés à la santé, et j'apporte une contribution digitale (communication, supports visuels, web).</div></div></div>
 </div></section>
-<section id="apropos" class="section">
-  <div class="section-num" data-i18n="s04n">04 &mdash; &Agrave; propos</div>
+<section id="apropos" class="section-full"><div class="si">
+  <div class="section-num" data-i18n="s04n">05 — À propos</div>
   <div class="section-title" data-i18n="s04t">Mon <span>profil</span></div>
   <div class="about-grid">
     <div class="about-text">
-      <p data-i18n="ap1">D&eacute;veloppeur WEB Full Stack et Graphic Designer avec une <strong>double formation alg&eacute;rienne et canadienne</strong>, je combine des comp&eacute;tences techniques solides en d&eacute;veloppement web avec une sensibilit&eacute; cr&eacute;ative en design graphique et multim&eacute;dia.</p>
-      <p data-i18n="ap2">Je con&ccedil;ois des <strong>applications m&eacute;tier sur mesure</strong> pour les entreprises alg&eacute;riennes &mdash; PME, usines, salles de sport, compagnies d'assurances, stations-service. Chaque projet va de la maquette Figma &agrave; la mise en production sur site.</p>
-      <p data-i18n="ap3">Mes solutions sont l&eacute;g&egrave;res, d&eacute;ployables en local et pens&eacute;es pour &ecirc;tre <strong>simples &agrave; utiliser</strong> au quotidien. J'associe un back-end PHP/MySQL &agrave; un launcher Windows en C# pour une exp&eacute;rience desktop compl&egrave;te.</p>
+      <p data-i18n="ap1">Développeur WEB Full Stack et Graphic Designer, <strong>major de promotion</strong>, avec une <strong>double formation algérienne et canadienne</strong> et deux victoires à WorldSkills Algeria, je combine des compétences techniques solides en développement web avec une sensibilité créative en design graphique et multimédia.</p>
+      <p data-i18n="apm">Chez <strong>SARL Bractive</strong>, je dirige une <strong>équipe de développeurs et de designers</strong> : planification des sprints, suivi de l'avancement, qualité du code, relation client et recueil des besoins fonctionnels.</p>
+      <p data-i18n="ap2">Je conçois des <strong>applications métier sur mesure</strong> pour les entreprises algériennes — PME, usines, salles de sport, compagnies d'assurances, stations-service, travaux hydrauliques, agences immobilières. Chaque projet va de la maquette Figma à la mise en production sur site.</p>
+      <p data-i18n="ap3">Mes solutions sont légères, déployables en local et pensées pour être <strong>simples à utiliser</strong> au quotidien. Selon le besoin, j'associe un back-end PHP/MySQL à un launcher Windows en C#, ou je construis des applications .NET et des plateformes web et mobiles (Next.js, Expo, Supabase).</p>
       <p data-i18n="ap4">Au-del&agrave; du code, je m'engage dans <strong>des projets &agrave; impact social et sanitaire</strong> &agrave; travers la fondation MAIRA.</p>
     </div>
     <div class="contact-card">
       <div class="contact-card-title" data-i18n="ctt">Contact</div>
       <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><div><div class="contact-item-label" data-i18n="ctl1">Email</div><div class="contact-item-value"><a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a></div></div></div>
       <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.64 1.36h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l1.98-1.98a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="contact-item-label" data-i18n="ctl2">T&eacute;l&eacute;phone</div><div class="contact-item-value"><a href="tel:+213793620490">+213 793 620 490</a></div></div></div>
-      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-item-label" data-i18n="ctl3">Localisation</div><div class="contact-item-value" data-i18n="ctv3">Alg&eacute;rie</div></div></div>
-      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><div class="contact-item-label" data-i18n="ctl4">Dipl&ocirc;mes</div><div class="contact-item-value" data-i18n="ctv4">BTS Alg&eacute;rie &middot; AEC Sherbrooke (CA)</div></div></div>
+      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="contact-item-label" data-i18n="ctl3">Localisation</div><div class="contact-item-value" data-i18n="ctv3">Kouba, Alger, Algérie</div></div></div>
+      <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div><div><div class="contact-item-label" data-i18n="ctl4">Dipl&ocirc;mes</div><div class="contact-item-value" data-i18n="ctv4">BTS · AEC Sherbrooke (CA) · Bachelor en cours</div></div></div>
     </div>
   </div>
-</section>
+</div></section>
 <footer>
   <div class="footer-name">Rafik MOKDAD</div>
-  <div class="footer-sub" data-i18n="ftsub">D&eacute;veloppeur WEB Full Stack &amp; Graphic Designer &middot; Alg&eacute;rie</div>
-  <div class="footer-links"><a href="#projets" data-i18n="ftl1">Projets</a><a href="#competences" data-i18n="ftl2">Comp&eacute;tences</a><a href="#formation" data-i18n="ftl3">Formation</a><a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a><a href="tel:+213793620490">+213 793 620 490</a></div>
+  <div class="footer-sub" data-i18n="ftsub">Développeur WEB Full Stack &amp; Chef de projet logiciel · Alger, Algérie</div>
+  <div class="footer-links"><a href="#projets" data-i18n="ftl1">Projets</a><a href="#experience" data-i18n="ftlx">Expérience</a><a href="#competences" data-i18n="ftl2">Comp&eacute;tences</a><a href="#formation" data-i18n="ftl3">Formation</a><a href="mailto:rfkmokdad@gmail.com">rfkmokdad@gmail.com</a><a href="tel:+213793620490">+213 793 620 490</a></div>
 </footer>
 <script>
 var dark=document.documentElement.classList.contains('dark');
@@ -261,10 +324,10 @@ document.getElementById('btn-dark').addEventListener('click',function(){dark=!da
 var lang=localStorage.getItem('lang')||'fr';
 var T={
 fr:{
-'np':'Projets','ns':'Compétences','ne':'Formation','na':'À propos',
+'np':'Projets','nx':'Expérience','ns':'Compétences','ne':'Formation','na':'À propos',
 'hbadge':'Disponible · Algérie',
-'hrole':'<strong>Développeur WEB Full Stack</strong> &amp; Graphic Designer',
-'hdesc':'Double formation algérienne et canadienne. Je conçois et développe des applications web et logiciels métier sur mesure, du design à la mise en production.',
+'hrole':'<strong>Développeur WEB Full Stack</strong> &amp; Chef de projet logiciel','hcrole':'Full Stack &amp; Chef de projet logiciel',
+'hdesc':'Développeur web full stack et graphic designer, major de promotion, formé en Algérie et au Canada. Je dirige une équipe de développeurs et de designers qui livre des logiciels de gestion sur mesure. Double vainqueur de WorldSkills Algeria, en Bachelor Cybersécurité.',
 'hb1':'Voir mes projets','hb2':'À propos',
 'hs1':'Développement web','hs2':'Design graphique','hs3':'Apps desktop (C#)','hs4':'Conception BDD',
 's01n':'01 — Réalisations','s01t':'Projets <span>développés</span>',
@@ -274,29 +337,36 @@ fr:{
 'p4t':'App Web MVC','p4d':'Application MVC complète pour salle de sport. Architecture maison (Router, Controller, Model) avec membres, abonnements et boutique.','p4f1':'Architecture MVC maison : Router, Controller, Model','p4f2':'Membres, abonnements, accès carnet / séance','p4f3':'Boutique, coachs, statistiques avancées',
 'p5t':'ERP / RH','p5d':'ERP RH interne pour une compagnie d\'assurances nationale. Personnel de 45 agences dans 28 villes à travers l\'Algérie, rôles et validation des accès.','p5f1':'Multi-agences : 45 agences, 28 villes','p5f2':'Rôles admin / employé / stagiaire','p5f3':'Recrutement, mouvements, documents, photos',
 'p6t':'Dashboard','p6d':'Dashboard de suivi de planning et d\'activité pour les entreprises. API PHP, visualisation des indicateurs, export de données.','p6f1':'Interface dashboard temps réel','p6f2':'API PHP, visualisation des KPIs','p6f3':'Export des données, design moderne',
-'s02n':'02 — Stack technique','s02t':'Compétences <span>&amp; outils</span>',
+'p7a':'Capture de HydroGest : synthèse d\'un chantier avec avancement, coûts et marge','p7t':'ERP · Application Windows','p7n':'HydroGest — Gestion d\'entreprise','p7d':'ERP Windows pour une entreprise de travaux hydrauliques (BTP) : personnel et paie, commercial, comptabilité SCF, chantiers et parc d\'engins. Fonctionne hors ligne, avec activation par licence et mises à jour en ligne signées.','p7f1':'Paie à périodes libres (semaine, quinzaine, mois) avec protection contre le double paiement','p7f2':'Ventes, achats, comptabilité SCF, TVA et trésorerie, avec états PDF et Excel','p7f3':'Chantiers : avancement, coûts, marge, équipe et engins, entretien du parc','p7f4':'Activation par clé signée, sauvegardes, mises à jour en ligne, plus de 240 tests automatisés',
+'p8a':'Capture d\'Imorex : tableau de bord du patrimoine avec alertes, valeur et derniers produits','p8t':'Inventaire · Application Windows','p8n':'Imorex — Inventaire du patrimoine','p8d':'Application Windows d\'inventaire du patrimoine immobilier : sites, emplacements, zones et produits, inventaires au scanner de codes-barres, PV d\'incidents, étiquettes et rapports. Interface en français, anglais et arabe (de droite à gauche).','p8g':'Scanner codes-barres','p8f1':'Sessions d\'inventaire au scanner de codes-barres, étiquettes imprimables, import des relevés','p8f2':'Interface trilingue FR / EN / AR, avec lecture de droite à gauche','p8f3':'Activation par code signé (ECDSA), code obfusqué, mises à jour en ligne signées','p8f4':'Livré avec installateur, guides FR / EN, vidéo de formation et plus de 280 tests',
+'p9a':'Capture du site de Baya Immobilier : page d\'accueil avec recherche de biens','p9t':'Plateforme web + mobile','p9d':'Site web et application Android pour une agence immobilière d\'Alger : annonces avec recherche et carte interactive, comptes clients, demandes de contact, réservation de visites et espace d\'administration complet. Interface en français, arabe (RTL) et anglais.','p9f1':'Recherche à filtres, carte interactive, favoris et recherches enregistrées','p9f2':'Back-office : annonces, clients, dossiers, documents, contrats, équipe et journal d\'activité','p9f3':'Notifications par e-mail et push, interface FR / AR (RTL) / EN','p9f4':'Sécurité par lignes (RLS), tests SQL et e-mails automatisés, pack de livraison client',
+'sxn':'02 — Parcours professionnel','sxt':'Expérience <span>professionnelle</span>',
+'x1d':'Mai 2026 — aujourd\'hui','x1s':'Développement de plusieurs logiciels de gestion','x1f1':'AutoLoc (location de voitures), GymPro (salle de sport), GTP (temps et paie), TimeMark (gestion des rondes), Imorex (inventaire) et HydroGest (ERP)','x1f2':'Programmation des pointeuses','x1f3':'Gestion et coordination d\'une équipe de développeurs et de designers','x1f4':'Planification des sprints et suivi de l\'avancement des projets','x1f5':'Supervision de la qualité du code et des bonnes pratiques de développement','x1f6':'Relation client et recueil des besoins fonctionnels',
+'x2r':'Développeur web — stage','x2d':'Nov. 2025 — avr. 2026','x2s':'Développement d\'un site web de gestion des ressources humaines','x2f1':'Analyse des besoins et conception de l\'application','x2f2':'Système complet de gestion RH : employés, stagiaires, centralisation des documents','x2f3':'Intégration front-end et back-end, interface responsive et intuitive','x2f4':'Tests, optimisation et correction des anomalies','x2f5':'Participation à la gestion de projet et respect des délais',
+'s02n':'03 — Stack technique','s02t':'Compétences <span>&amp; outils</span>','skm':'Management','skl':'Langues','skia':'Orchestration d\'IA','mg1':'Coordination d\'équipe','mg2':'Planification des sprints','mg3':'Recueil des besoins','mg4':'Relation client','lg1':'Arabe','lv1':'Courant','lg2':'Français','lv2':'Courant','lg3':'Anglais','lv3':'Bon niveau',
 'sk1':'Développement web','sk2':'Design &amp; Multimédia','skdb':'Conception base de données',
-'s03n':'03 — Parcours académique','s03t':'Formations <span>&amp; diplômes</span>',
-'ec0':'En cours · Algérie &amp; France','ed0':'Bachelor — Cybersécurité','es0':'HIMI Alger · En partenariat avec l\'ESGI (France)',
-'ec1':'Algérie','ed1':'BTS — Développement Web &amp; Multimédias','es1':'Brevet de Technicien Supérieur · Formation nationale',
-'ec2':'Canada','ed2':'AEC — Développement Web','es2':'Attestation d\'&Eacute;tudes Collégiales · Cégep de Sherbrooke',
+'s03n':'04 — Parcours académique','s03t':'Formations <span>&amp; diplômes</span>',
+'ec0':'En cours · Algérie &amp; France','ed0':'Bachelor — Cybersécurité','es0':'HIMI Alger · En partenariat avec l\'ESGI (France) · 2026 – 2027',
+'ec1':'Algérie','ed1':'BTS — Développement Web','es1':'Brevet de Technicien Supérieur · INSIM Bouira (Algérie) · 2024 – 2026',
+'ec2':'Canada','ed2':'AEC — Développement Web &amp; Multimédia','es2':'Attestation d\'Études Collégiales · Cégep de Sherbrooke – INSIM Bouira (Algérie) · 2024 – 2026',
 'eng':'Engagement associatif',
 'aw':'Distinctions','awl1':'Première place','awt1':'WorldSkills Algeria — Wilaya de Bouira','aws1':'Compétition de wilaya · Mai 2026','awl2':'Première place','awt2':'WorldSkills Algeria — Région Centre','aws2':'Nord de l\'Algérie · Septembre 2026',
-'msub':'Animateur &amp; Représentant officiel',
-'mdesc':'Je suis l\'animateur et le représentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Algérie. Engagé dans des projets à impact social et sanitaire, je contribue à la sensibilisation, à l\'accompagnement des patients et à la visibilité de ces maladies méconnues.',
-'s04n':'04 — À propos','s04t':'Mon <span>profil</span>',
-'ap1':'Développeur WEB Full Stack et Graphic Designer avec une <strong>double formation algérienne et canadienne</strong>, je combine des compétences techniques solides en développement web avec une sensibilité créative en design graphique et multimédia.',
-'ap2':'Je conçois des <strong>applications métier sur mesure</strong> pour les entreprises algériennes — PME, usines, salles de sport, compagnies d\'assurances, stations-service. Chaque projet va de la maquette Figma à la mise en production sur site.',
-'ap3':'Mes solutions sont légères, déployables en local et pensées pour être <strong>simples à utiliser</strong> au quotidien. J\'associe un back-end PHP/MySQL à un launcher Windows en C# pour une expérience desktop complète.',
+'msub':'Animateur &amp; Représentant officiel · 2024 – aujourd\'hui',
+'mdesc':'Je suis l\'animateur et le représentant de la fondation <strong>MAIRA</strong> pour les personnes atteintes de maladies auto-immunes, invisibles et rares en Algérie. Engagé dans des projets à impact social et sanitaire, je contribue à la sensibilisation, à l\'accompagnement des patients et à la visibilité de ces maladies méconnues. Depuis 2024, je participe à des actions de sensibilisation et à des événements liés à la santé, et j\'apporte une contribution digitale (communication, supports visuels, web).',
+'s04n':'05 — À propos','s04t':'Mon <span>profil</span>',
+'ap1':'Développeur WEB Full Stack et Graphic Designer, <strong>major de promotion</strong>, avec une <strong>double formation algérienne et canadienne</strong> et deux victoires à WorldSkills Algeria, je combine des compétences techniques solides en développement web avec une sensibilité créative en design graphique et multimédia.',
+'apm':'Chez <strong>SARL Bractive</strong>, je dirige une <strong>équipe de développeurs et de designers</strong> : planification des sprints, suivi de l\'avancement, qualité du code, relation client et recueil des besoins fonctionnels.',
+'ap2':'Je conçois des <strong>applications métier sur mesure</strong> pour les entreprises algériennes — PME, usines, salles de sport, compagnies d\'assurances, stations-service, travaux hydrauliques, agences immobilières. Chaque projet va de la maquette Figma à la mise en production sur site.',
+'ap3':'Mes solutions sont légères, déployables en local et pensées pour être <strong>simples à utiliser</strong> au quotidien. Selon le besoin, j\'associe un back-end PHP/MySQL à un launcher Windows en C#, ou je construis des applications .NET et des plateformes web et mobiles (Next.js, Expo, Supabase).',
 'ap4':'Au-delà du code, je m\'engage dans <strong>des projets à impact social et sanitaire</strong> à travers la fondation MAIRA.',
-'ctt':'Contact','ctl1':'Email','ctl2':'Téléphone','ctl3':'Localisation','ctv3':'Algérie','ctl4':'Diplômes','ctv4':'BTS Algérie · AEC Sherbrooke (CA)',
-'ftsub':'Développeur WEB Full Stack &amp; Graphic Designer · Algérie','ftl1':'Projets','ftl2':'Compétences','ftl3':'Formation'
+'ctt':'Contact','ctl1':'Email','ctl2':'Téléphone','ctl3':'Localisation','ctv3':'Kouba, Alger, Algérie','ctl4':'Diplômes','ctv4':'BTS · AEC Sherbrooke (CA) · Bachelor en cours',
+'ftsub':'Développeur WEB Full Stack &amp; Chef de projet logiciel · Alger, Algérie','ftl1':'Projets','ftlx':'Expérience','ftl2':'Compétences','ftl3':'Formation'
 },
 en:{
-'np':'Projects','ns':'Skills','ne':'Education','na':'About',
+'np':'Projects','nx':'Experience','ns':'Skills','ne':'Education','na':'About',
 'hbadge':'Available · Algeria',
-'hrole':'<strong>Full Stack WEB Developer</strong> &amp; Graphic Designer',
-'hdesc':'Dual Algerian and Canadian education. I design and develop custom web applications and business software, from wireframes to production deployment.',
+'hrole':'<strong>Full Stack WEB Developer</strong> &amp; Software Project Manager','hcrole':'Full Stack &amp; Software Project Manager',
+'hdesc':'Full stack web developer and graphic designer, top of class, trained in Algeria and Canada. I lead a team of developers and designers delivering custom management software. Two-time WorldSkills Algeria winner, currently completing a Bachelor\'s degree in Cybersecurity.',
 'hb1':'View my projects','hb2':'About me',
 'hs1':'Web development','hs2':'Graphic design','hs3':'Desktop apps (C#)','hs4':'Database design',
 's01n':'01 — Work','s01t':'Developed <span>projects</span>',
@@ -306,23 +376,30 @@ en:{
 'p4t':'MVC Web app','p4d':'Complete MVC application for a gym. Custom architecture (Router, Controller, Model) with members, subscriptions and shop.','p4f1':'Custom MVC: Router, Controller, Model','p4f2':'Members, subscriptions, session / book access','p4f3':'Shop, coaches, advanced statistics',
 'p5t':'ERP / HR','p5d':'Internal HR ERP for a national insurance company. Staff across 45 branches in 28 cities throughout Algeria, roles and access validation.','p5f1':'Multi-branch: 45 branches, 28 cities','p5f2':'Admin / employee / intern roles','p5f3':'Recruitment, transfers, documents, photos',
 'p6t':'Dashboard','p6d':'Planning and activity tracking dashboard for businesses. PHP API, KPI visualization, data export.','p6f1':'Real-time dashboard interface','p6f2':'PHP API, KPI visualization','p6f3':'Data export, modern design',
-'s02n':'02 — Tech stack','s02t':'Skills <span>&amp; tools</span>',
+'p7a':'HydroGest screenshot: job-site summary with progress, costs and margin','p7t':'ERP · Windows app','p7n':'HydroGest — Business management','p7d':'Windows ERP for a hydraulic-works (construction) company: staff and payroll, sales and purchasing, SCF accounting, job sites and machine fleet. Works offline, with license activation and signed online updates.','p7f1':'Payroll on free pay periods (week, fortnight, month) with double-payment protection','p7f2':'Sales, purchasing, SCF accounting, VAT and cash, with PDF and Excel reports','p7f3':'Job sites: progress, costs, margin, crew and machines, fleet maintenance','p7f4':'Signed activation key, backups, online updates, 240+ automated tests',
+'p8a':'Imorex screenshot: asset dashboard with alerts, value and latest products','p8t':'Inventory · Windows app','p8n':'Imorex — Asset inventory','p8d':'Windows application for real-estate asset inventory: sites, locations, zones and products, barcode-scanner inventories, incident reports, labels and reports. Interface in French, English and Arabic (right-to-left).','p8g':'Barcode scanner','p8f1':'Barcode-scanner inventory sessions, printable labels, scan-sheet import','p8f2':'Trilingual FR / EN / AR interface with right-to-left layout','p8f3':'Signed activation code (ECDSA), obfuscated code, signed online updates','p8f4':'Delivered with installer, FR / EN guides, training video and 280+ automated tests',
+'p9a':'Baya Immobilier website screenshot: home page with property search','p9t':'Web + mobile platform','p9d':'Website and Android app for a real-estate agency in Algiers: listings with search and an interactive map, client accounts, contact requests, visit booking and a full admin area. Interface in French, Arabic (RTL) and English.','p9f1':'Filtered search, interactive map, favorites and saved searches','p9f2':'Back-office: listings, clients, deals, documents, contracts, team and activity log','p9f3':'E-mail and push notifications, FR / AR (RTL) / EN interface','p9f4':'Row-level security, automated SQL and e-mail tests, client delivery pack',
+'sxn':'02 — Work experience','sxt':'Professional <span>experience</span>',
+'x1d':'May 2026 — present','x1s':'Development of several management software solutions','x1f1':'AutoLoc (car rental), GymPro (gym), GTP (time and payroll), TimeMark (patrol/rounds management), Imorex (inventory) and HydroGest (ERP)','x1f2':'Time-clock (attendance device) programming','x1f3':'Coordination and management of a team of developers and designers','x1f4':'Sprint planning and project progress tracking','x1f5':'Code quality oversight and development best practices','x1f6':'Client relations and functional requirements gathering',
+'x2r':'Web Developer — internship','x2d':'Nov. 2025 — Apr. 2026','x2s':'Development of a human resources management website','x2f1':'Needs analysis and application design','x2f2':'Complete HR management system: employees, interns, document centralization','x2f3':'Front-end and back-end integration, responsive and intuitive interface','x2f4':'Testing, optimization and bug fixing','x2f5':'Project management support and deadline compliance',
+'s02n':'03 — Tech stack','s02t':'Skills <span>&amp; tools</span>','skm':'Management','skl':'Languages','skia':'AI orchestration','mg1':'Team coordination','mg2':'Sprint planning','mg3':'Requirements gathering','mg4':'Client relations','lg1':'Arabic','lv1':'Fluent','lg2':'French','lv2':'Fluent','lg3':'English','lv3':'Good level',
 'sk1':'Web development','sk2':'Design &amp; Multimedia','skdb':'Database design',
-'s03n':'03 — Academic background','s03t':'Education <span>&amp; degrees</span>',
-'ec0':'In progress · Algeria &amp; France','ed0':'Bachelor — Cybersecurity','es0':'HIMI Algiers · In partnership with ESGI (France)',
-'ec1':'Algeria','ed1':'BTS — Web &amp; Multimedia Development','es1':'Higher Technician Certificate · National program',
-'ec2':'Canada','ed2':'AEC — Web Development','es2':'College Studies Certificate · Cégep de Sherbrooke',
+'s03n':'04 — Academic background','s03t':'Education <span>&amp; degrees</span>',
+'ec0':'In progress · Algeria &amp; France','ed0':'Bachelor — Cybersecurity','es0':'HIMI Algiers · In partnership with ESGI (France) · 2026 – 2027',
+'ec1':'Algeria','ed1':'BTS — Web Development','es1':'Higher Technician Certificate · INSIM Bouira (Algeria) · 2024 – 2026',
+'ec2':'Canada','ed2':'AEC — Web &amp; Multimedia Development','es2':'College Studies Certificate · Cégep de Sherbrooke – INSIM Bouira (Algeria) · 2024 – 2026',
 'eng':'Community engagement',
 'aw':'Awards','awl1':'First place','awt1':'WorldSkills Algeria — Bouira Province','aws1':'Provincial competition · May 2026','awl2':'First place','awt2':'WorldSkills Algeria — Central Region','aws2':'Northern Algeria · September 2026',
-'msub':'Coordinator &amp; Official Representative',
-'mdesc':'I am the coordinator and representative of the <strong>MAIRA</strong> Foundation for people with auto-immune, invisible and rare diseases in Algeria. Engaged in projects with social and health impact, I contribute to awareness, patient support, and visibility of these underrecognized diseases.',
-'s04n':'04 — About','s04t':'My <span>profile</span>',
-'ap1':'Full Stack WEB Developer and Graphic Designer with <strong>dual Algerian and Canadian education</strong>, I combine solid technical skills in web development with creative expertise in graphic design and multimedia.',
-'ap2':'I build <strong>custom business applications</strong> for Algerian companies — SMEs, factories, gyms, insurance companies, gas stations. Each project goes from Figma mockup to on-site production deployment.',
-'ap3':'My solutions are lightweight, locally deployable and designed to be <strong>simple to use</strong> daily. I pair a PHP/MySQL back-end with a C# Windows launcher for a complete desktop experience.',
+'msub':'Coordinator &amp; Official Representative · 2024 – present',
+'mdesc':'I am the coordinator and representative of the <strong>MAIRA</strong> Foundation for people with auto-immune, invisible and rare diseases in Algeria. Engaged in projects with social and health impact, I contribute to awareness, patient support, and visibility of these underrecognized diseases. Since 2024, I have taken part in health awareness campaigns and events, with a digital contribution (communication, visual materials, web).',
+'s04n':'05 — About','s04t':'My <span>profile</span>',
+'ap1':'Full Stack WEB Developer and Graphic Designer, <strong>top of class</strong>, with <strong>dual Algerian and Canadian education</strong> and two WorldSkills Algeria wins, I combine solid technical skills in web development with creative expertise in graphic design and multimedia.',
+'apm':'At <strong>SARL Bractive</strong>, I lead a <strong>team of developers and designers</strong>: sprint planning, progress tracking, code quality, client relations and functional requirements gathering.',
+'ap2':'I build <strong>custom business applications</strong> for Algerian companies — SMEs, factories, gyms, insurance companies, gas stations, hydraulic works, real-estate agencies. Each project goes from Figma mockup to on-site production deployment.',
+'ap3':'My solutions are lightweight, locally deployable and designed to be <strong>simple to use</strong> daily. Depending on the need, I pair a PHP/MySQL back-end with a C# Windows launcher, or build .NET applications and web and mobile platforms (Next.js, Expo, Supabase).',
 'ap4':'Beyond code, I am engaged in <strong>social and health impact projects</strong> through the MAIRA Foundation.',
-'ctt':'Contact','ctl1':'Email','ctl2':'Phone','ctl3':'Location','ctv3':'Algeria','ctl4':'Degrees','ctv4':'BTS Algeria · AEC Sherbrooke (CA)',
-'ftsub':'Full Stack WEB Developer &amp; Graphic Designer · Algeria','ftl1':'Projects','ftl2':'Skills','ftl3':'Education'
+'ctt':'Contact','ctl1':'Email','ctl2':'Phone','ctl3':'Location','ctv3':'Kouba, Algiers, Algeria','ctl4':'Degrees','ctv4':'BTS · AEC Sherbrooke (CA) · Bachelor in progress',
+'ftsub':'Full Stack WEB Developer &amp; Software Project Manager · Algiers, Algeria','ftl1':'Projects','ftlx':'Experience','ftl2':'Skills','ftl3':'Education'
 }};
 
 function applyLang(l){
@@ -330,6 +407,10 @@ function applyLang(l){
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var k=el.getAttribute('data-i18n');
     if(T[l][k]!==undefined)el.innerHTML=T[l][k];
+  });
+  document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+    var k=el.getAttribute('data-i18n-alt');
+    if(T[l][k]!==undefined)el.setAttribute('alt',T[l][k]);
   });
   document.getElementById('btn-lang').textContent=l==='fr'?'EN':'FR';
   document.documentElement.setAttribute('lang',l);
